@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>GlossiCat — $GLOXI Launch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <title>$GLOXI • Luxury Meme Queen of Solana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- GSAP (for animations) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
+      --gold: #d4af37;
+      --gold-soft: #f3e3a5;
       --white: #ffffff;
-      --gold: #ffd700;
-      --charcoal: #333333;
-      --diamond: #e8e8e8;
-      --bg-soft: #fdfdfd;
+      --pearl: #fdf8f2;
+      --bg-dark: #111111;
+      --text-dark: #222222;
+      --overlay: rgba(255,255,255,0.7);
     }
 
     * {
@@ -28,471 +24,1008 @@
     }
 
     body {
-      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--white);
-      color: var(--charcoal);
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3 {
-      font-family: "Playfair Display", serif;
-      color: var(--charcoal);
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, var(--white), var(--pearl));
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
     a {
+      color: var(--gold);
       text-decoration: none;
-      color: inherit;
     }
 
-    .page {
-      width: 100%;
-      min-height: 100vh;
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212,175,55,0.2);
     }
 
-    section {
-      width: 100%;
-      min-height: 100vh;
-      padding: 80px 10vw;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* HERO — COLUMN HALLWAY */
-    .hero {
-      background: radial-gradient(circle at top, #fff 0%, #f7f7f7 40%, #f0e4c0 100%);
-      color: var(--charcoal);
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1.2fr;
-      gap: 40px;
-      align-items: center;
-      width: 100%;
+    .nav {
       max-width: 1200px;
-      position: relative;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
     }
 
-    .hero-columns {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.4;
-      background-image: linear-gradient(to right, rgba(255,255,255,0.7) 0, rgba(255,255,255,0.7) 10%, transparent 10%, transparent 20%);
-      background-size: 120px 100%;
-      mix-blend-mode: screen;
-    }
-
-    .hero-left h1 {
-      font-size: 2.8rem;
-      line-height: 1.1;
-      margin-bottom: 16px;
+    .nav-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
       color: var(--gold);
+      letter-spacing: 1px;
     }
 
-    .hero-left p {
-      font-size: 1rem;
-      max-width: 320px;
-    }
-
-    .hero-cta {
-      margin-top: 24px;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 999px;
-      background: var(--gold);
-      color: var(--charcoal);
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .nav-right a {
+      margin-left: 16px;
+      font-size: 13px;
       text-transform: uppercase;
-      font-size: 0.85rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 500;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+    .nav-right a:hover {
+      color: var(--gold-soft);
     }
 
-    .hero-center {
-      text-align: center;
+    /* GENERIC SECTION STYLING */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
       position: relative;
     }
 
-    .halo {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,215,0,0.8) 0%, transparent 60%);
-      margin: 0 auto 16px;
-      filter: blur(2px);
-    }
-
-    .glossicat-avatar {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 40%, #ffd700 100%);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Playfair Display", serif;
-      font-size: 1.6rem;
-      color: var(--charcoal);
-      position: relative;
-    }
-
-    .glossicat-avatar::after {
-      content: "👑";
-      position: absolute;
-      top: -18px;
-      font-size: 1.6rem;
-    }
-
-    .hero-right {
-      text-align: right;
-    }
-
-    .hero-right h2 {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
-
-    .hero-right p {
-      font-size: 0.95rem;
-      max-width: 320px;
-      margin-left: auto;
-    }
-
-    /* GENERIC SECTION STYLES */
-    .section-inner {
-      width: 100%;
-      max-width: 1100px;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .section-inner.reverse {
-      grid-template-columns: 1fr 1.1fr;
-    }
-
-    .section-visual {
-      border-radius: 24px;
-      background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 40%, #ffd700 100%);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-      min-height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Playfair Display", serif;
-      font-size: 1.4rem;
-      color: var(--charcoal);
-      text-align: center;
-      padding: 24px;
-    }
-
-    .section-content h2 {
-      font-size: 2rem;
-      margin-bottom: 12px;
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
       color: var(--gold);
+      text-align: center;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
     }
 
-    .section-content p {
-      font-size: 0.98rem;
-      line-height: 1.6;
-      margin-bottom: 12px;
+    .section-subtitle {
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(0,0,0,0.6);
+      margin-bottom: 30px;
     }
 
-    .section-content .tagline {
-      font-style: italic;
-      color: var(--charcoal);
-      opacity: 0.8;
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
 
-    .section-content .cta-row {
-      margin-top: 20px;
+    .card {
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+
+    /* BUTTONS */
+    .btn-row {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 25px;
     }
 
+    .btn-gold,
     .btn-outline {
       padding: 10px 22px;
       border-radius: 999px;
-      border: 1px solid var(--gold);
-      font-size: 0.85rem;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(6px);
-      transition: background 0.2s ease, transform 0.2s ease;
+      letter-spacing: 1px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-soft);
+      border-color: var(--gold-soft);
     }
 
     .btn-outline:hover {
-      background: var(--gold);
-      transform: translateY(-1px);
+      background: rgba(212,175,55,0.1);
     }
 
-    /* COMMUNITY SECTION */
-    .community {
-      background: radial-gradient(circle at top, #ffffff 0%, #fdfdfd 40%, #e8e8e8 100%);
-    }
-
-    .icon-row {
-      display: flex;
-      gap: 18px;
-      margin-top: 16px;
-    }
-
-    .icon-pill {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--gold);
-      font-size: 0.85rem;
-      display: inline-flex;
+    /* HERO SECTION */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
       align-items: center;
-      gap: 8px;
+      padding-top: 80px;
+    }
+
+    .hero-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .hero-left h1 span {
+      display: block;
+      font-size: 24px;
+      color: var(--text-dark);
+    }
+
+    .hero-left p {
+      font-size: 15px;
+      margin-top: 15px;
+      max-width: 480px;
+    }
+
+    .hero-ca {
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(0,0,0,0.7);
+    }
+
+    .hero-ca code {
+      background: rgba(0,0,0,0.05);
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .hero-right {
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-bg {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      padding: 10px;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .hero-note {
+      font-size: 11px;
+      margin-top: 8px;
+      color: rgba(0,0,0,0.6);
+    }
+
+    /* ABOUT SECTION */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .about-text p {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .about-pill-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .about-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.4);
+      padding: 10px 16px;
+      font-size: 12px;
       background: rgba(255,255,255,0.8);
     }
 
-    /* FOOTER */
-    .footer {
-      background: linear-gradient(180deg, #ffffff 0%, #fdfdfd 40%, #e8e8e8 100%);
+    .about-image {
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.8);
+      padding: 10px;
       text-align: center;
-      flex-direction: column;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .upload-note {
+      font-size: 11px;
+      margin-top: 6px;
+      color: rgba(0,0,0,0.6);
+    }
+
+    /* LORE / GLOSSI CHRONICLES */
+    .lore-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .lore-video-placeholder {
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.85);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .lore-video-placeholder p {
+      font-size: 13px;
+    }
+
+    /* TOKEN UTILITY */
+    .token-icons {
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 20px;
+      color: rgba(0,0,0,0.7);
+    }
+
+    /* COMMUNITY PORTAL */
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
     }
 
-    .footer .halo-footer {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,215,0,0.7) 0%, transparent 60%);
-      margin: 0 auto 8px;
-      filter: blur(2px);
+    .community-card {
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.85);
+      padding: 16px;
     }
 
-    .footer-logo {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: 1px solid var(--gold);
-      background: rgba(255,255,255,0.9);
-      font-family: "Playfair Display", serif;
-      font-size: 1rem;
-      letter-spacing: 0.12em;
+    .community-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .community-card p {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .community-card a {
+      font-size: 12px;
+      word-break: break-all;
+    }
+
+    /* TREASURY TRACKER */
+    .treasury-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .treasury-chart {
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.85);
+      padding: 16px;
+      min-height: 220px;
+    }
+
+    .treasury-chart p {
+      font-size: 13px;
+      color: rgba(0,0,0,0.7);
+    }
+
+    .treasury-stats {
+      font-size: 14px;
+    }
+
+    .treasury-stats strong {
+      color: var(--gold);
+    }
+
+    /* ROADMAP */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .roadmap-phase {
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.85);
+      padding: 16px;
+    }
+
+    .roadmap-phase h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .roadmap-phase .status {
+      font-size: 11px;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(0,0,0,0.6);
+      margin-bottom: 8px;
     }
 
-    .footer p {
-      font-size: 0.85rem;
-      opacity: 0.8;
+    .roadmap-phase ul {
+      list-style: none;
+      font-size: 13px;
     }
 
-    .footer .scripture {
-      font-style: italic;
+    .roadmap-phase ul li::before {
+      content: "• ";
+      color: var(--gold);
     }
 
-    /* SIMPLE RESPONSIVE */
+    /* MISSION & VISION */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 30px;
+    }
+
+    .mv-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .mv-block p {
+      font-size: 14px;
+    }
+
+    /* TOKENOMICS POSTER PLACEHOLDER */
+    .tokenomics-poster {
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.85);
+      padding: 16px;
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .tokenomics-poster p {
+      font-size: 13px;
+    }
+
+    /* WELCOME SECTION */
+    .welcome-text p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    /* BUY GLOXI POPUP */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup {
+      background: rgba(255,255,255,0.95);
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.6);
+      max-width: 420px;
+      width: 90%;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .popup h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .popup p {
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .popup img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .popup-close {
+      margin-top: 10px;
+      font-size: 12px;
+      cursor: pointer;
+      color: rgba(0,0,0,0.6);
+    }
+
+    /* ROYAL FAQ CHAMBER */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .faq-list h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--gold);
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    .faq-list p {
+      font-size: 13px;
+    }
+
+    .faq-media {
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.4);
+      background: rgba(255,255,255,0.85);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .faq-media p {
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-dark);
+      color: rgba(255,255,255,0.8);
+      margin-top: 40px;
+      padding: 30px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-inner h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--gold-soft);
+      margin-bottom: 8px;
+    }
+
+    .footer-links {
+      font-size: 12px;
+    }
+
+    .footer-links a {
+      margin-right: 10px;
+      color: var(--gold-soft);
+    }
+
+    .footer-ca {
+      font-size: 11px;
+      margin-top: 8px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-ca code {
+      background: rgba(255,255,255,0.05);
+      padding: 3px 5px;
+      border-radius: 4px;
+    }
+
     @media (max-width: 900px) {
-      section {
-        padding: 60px 6vw;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-right {
-        text-align: center;
-      }
-
-      .hero-right p {
-        margin: 0 auto;
-      }
-
-      .section-inner,
-      .section-inner.reverse {
+      .hero {
         grid-template-columns: 1fr;
       }
-
-      .section-content {
-        text-align: center;
+      .about-grid,
+      .lore-grid,
+      .treasury-layout,
+      .mv-grid,
+      .faq-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
       }
-
-      .section-content .cta-row {
-        justify-content: center;
+      header {
+        position: static;
+      }
+      .nav-right {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
 
-    <!-- HERO: $GLOXI NOW LIVE ON SOLANA -->
-    <section class="hero" id="hero">
-      <div class="hero-columns"></div>
-      <div class="hero-inner">
-        <div class="hero-left">
-          <h1>$GLOXI Now Live on Solana</h1>
-          <p>Luxury meets meme. Step into the GlossiCat Empire and witness the queen of the memeverse ascend on Solana.</p>
-          <div class="hero-cta">
-            <a href="#token" class="btn-primary">Enter the Empire</a>
-          </div>
-        </div>
-
-        <div class="hero-center">
-          <div class="halo" id="heroHalo"></div>
-          <div class="glossicat-avatar">
-            GlossiCat
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <h2>From Above. Unchanging.</h2>
-          <p>Every good and perfect gift is from above. $GLOXI is crowned in light, built for those who love luxury and lore.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- LORE SECTION -->
-    <section id="lore">
-      <div class="section-inner">
-        <div class="section-visual">
-          Luxury Meme Queen  
-          <br /><br />
-          Gold gown, crown, and columns.  
-          <br />
-          The empire aesthetic in one frame.
-        </div>
-        <div class="section-content">
-          <h2>The Luxury Meme Queen</h2>
-          <p>Born from light and luxury, GlossiCat reigns over the memeverse with elegance, wit, and unapologetic gold‑dripped energy.</p>
-          <p class="tagline">House of Glossi. Empire in motion.</p>
-          <div class="cta-row">
-            <a href="#token" class="btn-outline">Discover the Story</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOKEN SECTION -->
-    <section id="token">
-      <div class="section-inner reverse">
-        <div class="section-content">
-          <h2>$GLOXI on Solana</h2>
-          <p><strong>Chain:</strong> Solana</p>
-          <p><strong>Symbol:</strong> $GLOXI</p>
-          <p><strong>Utility:</strong> Lore‑driven community, empire‑style branding, and future GlossiVerse integrations.</p>
-          <p class="tagline">From Above. Unchanging.</p>
-          <div class="cta-row">
-            <a href="#" class="btn-outline">View on Solscan</a>
-            <a href="#" class="btn-outline">Get $GLOXI</a>
-          </div>
-        </div>
-        <div class="section-visual">
-          Solana × GlossiCat  
-          <br /><br />
-          Geometric gold, divine white,  
-          <br />
-          and a chain built for speed.
-        </div>
-      </div>
-    </section>
-
-    <!-- COMMUNITY SECTION -->
-    <section class="community" id="community">
-      <div class="section-inner">
-        <div class="section-visual">
-          Join the GlossiVerse  
-          <br /><br />
-          Holders, builders, believers.  
-          <br />
-          The empire grows together.
-        </div>
-        <div class="section-content">
-          <h2>Join the GlossiVerse</h2>
-          <p>Connect with the community that crowns GlossiCat as the Luxury Meme Queen. Telegram, X, and beyond.</p>
-          <div class="icon-row">
-            <div class="icon-pill">📨 Telegram</div>
-            <div class="icon-pill">✖ X (Twitter)</div>
-          </div>
-          <div class="cta-row">
-            <a href="#" class="btn-outline">Join Telegram</a>
-            <a href="#" class="btn-outline">Follow on X</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER / ASCENSION -->
-    <section class="footer" id="footer">
-      <div class="halo-footer" id="footerHalo"></div>
-      <div class="footer-logo">$GLOXI • GlossiCat</div>
-      <p>© 2026 GlossiCat Empire. All rights reserved.</p>
-      <p class="scripture">“Every good and perfect gift is from above.” — James 1:17</p>
-    </section>
+<header>
+  <div class="nav">
+    <div class="nav-left">$GLOXI</div>
+    <div class="nav-right">
+      <a href="#about">ABOUT</a>
+      <a href="#glossiverse">WELCOME TO THE GLOSSIVERSE</a>
+      <a href="#roadmap">ROADMAP</a>
+      <a href="#buy-top">BUY GLOXI</a>
+      <a href="#mission-vision">MISSION & VISION</a>
+      <a href="#tokenomics">TOKENOMICS</a>
+      <a href="#community">SOCIAL LINKS</a>
+      <a href="#lore">LORE</a>
+      <a href="#faq">ROYAL FAQ CHAMBER</a>
+    </div>
   </div>
+</header>
 
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
+<main>
 
-    // HERO halo breathing
-    gsap.to("#heroHalo", {
-      scale: 1.15,
-      duration: 3,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut"
-    });
+  <!-- HERO / BUY GLOXI TOP -->
+  <section id="buy-top">
+    <div class="hero">
+      <div class="hero-left">
+        <h1>$GLOXI <span>Live on Solana</span></h1>
+        <p>
+          Stay glossy, stay wealthy. $GLOXI is the luxury meme token of Solana—
+          where confidence, culture, and cinematic storytelling converge into a royal digital kingdom.
+        </p>
+        <div class="hero-ca">
+          <strong>Contract Address:</strong>
+          <br>
+          <code>6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K</code>
+        </div>
+        <div class="btn-row">
+          <button class="btn-gold" onclick="openBuyPopup()">Buy $GLOXI</button>
+          <a class="btn-outline" href="#glossiverse">Explore the GlossiVerse</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-bg">
+          <!-- UPLOAD HERO BANNER IMAGE HERE -->
+          <img src="UPLOAD_HERO_BANNER_IMAGE_HERE.png" alt="GlossiCat Hero Banner">
+        </div>
+        <div class="hero-note">
+          Replace <strong>UPLOAD_HERO_BANNER_IMAGE_HERE.png</strong> with your hero banner (GlossiCat + $GLOXI Live on Solana).
+        </div>
+      </div>
+    </div>
+  </section>
 
-    // Parallax columns
-    gsap.to(".hero-columns", {
-      yPercent: -20,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
+  <!-- ABOUT GLOSSICAT -->
+  <section id="about">
+    <h2 class="section-title">ABOUT GLOSSICAT</h2>
+    <p class="section-subtitle">The Luxury Meme Queen of Solana</p>
 
-    // Section fade/slide in
-    document.querySelectorAll("section").forEach((sec) => {
-      if (sec.id === "hero" || sec.id === "footer") return;
-      gsap.from(sec.querySelector(".section-inner"), {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sec,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      });
-    });
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          GlossiCat is the queen of the luxury meme movement, embodying confidence, culture, and opulence.
+          She reigns over the GlossiVerse with style and discipline—every move intentional, every chapter cinematic.
+        </p>
+        <p>
+          Through storytelling, design, and community‑driven culture, GlossiCat transforms meme energy into a royal brand.
+          Holders aren’t just investors—they’re citizens of a kingdom built on quiet moves and loud results.
+        </p>
 
-    // Footer halo slow expansion
-    gsap.to("#footerHalo", {
-      scale: 1.2,
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-  </script>
+        <div class="about-pill-row">
+          <div class="about-pill">LUXURY AESTHETIC • Gold, marble, and cinematic visuals.</div>
+          <div class="about-pill">MEME‑FIRST CULTURE • Viral storytelling and royal humor.</div>
+          <div class="about-pill">COMMUNITY‑DRIVEN • Citizens, courts, and collective momentum.</div>
+        </div>
+      </div>
+      <div class="about-image">
+        <!-- UPLOAD ABOUT GLOSSICAT IMAGE HERE -->
+        <img src="UPLOAD_ABOUT_GLOSSICAT_IMAGE_HERE.png" alt="About GlossiCat">
+        <div class="upload-note">
+          Replace <strong>UPLOAD_ABOUT_GLOSSICAT_IMAGE_HERE.png</strong> with your About GlossiCat artwork.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOSSI CHRONICLES / LORE -->
+  <section id="lore">
+    <h2 class="section-title">GLOSSI CHRONICLES</h2>
+    <p class="section-subtitle">Lore, Trailers, and Royal Myth</p>
+
+    <div class="lore-grid">
+      <div>
+        <p>
+          In the heart of Solania—the radiant capital of the GlossiVerse—GlossiCat’s signal grows stronger with every new holder.
+          Each citizen amplifies her power, awakening fragments of a cosmic force tied to her royal ascension.
+        </p>
+        <p>
+          The GlossiVerse expands as new citizens join the mission, strengthening the kingdom and pushing GlossiCat toward her destined reign.
+          Here, lore isn’t just story—it’s the living myth of a meme queen becoming a cultural icon.
+        </p>
+        <div class="btn-row">
+          <button class="btn-gold">Play Lore Animation</button>
+          <button class="btn-outline">Explore the GlossiVerse</button>
+        </div>
+      </div>
+      <div class="lore-video-placeholder">
+        <!-- UPLOAD LORE MP4 / VIDEO POSTER HERE -->
+        <p><strong>LORE VIDEO AREA</strong></p>
+        <p>
+          Replace this block with your embedded lore MP4 or video player.
+          Use a poster image like <strong>UPLOAD_LORE_POSTER_IMAGE_HERE.png</strong> and link to your MP4.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME TO THE GLOSSIVERSE -->
+  <section id="glossiverse">
+    <h2 class="section-title">WELCOME TO THE GLOSSIVERSE</h2>
+    <p class="section-subtitle">Where Royalty Meets Meme Magic</p>
+
+    <div class="welcome-text">
+      <p>
+        The GlossiVerse is the expanding digital kingdom powered by Solana and strengthened by the GlossiCat community.
+        It is the realm where her lore unfolds, relics hold power, citizens gather, and her ascension takes place.
+      </p>
+      <p>
+        Launch ceremonies, meme queen ascension, community coronations, and royal expansion all weave together into a living narrative.
+        Every holder becomes part of this world, contributing to its growth, culture, and momentum.
+      </p>
+    </div>
+  </section>
+
+  <!-- TOKEN UTILITY -->
+  <section id="token-utility">
+    <h2 class="section-title">TOKEN UTILITY</h2>
+    <p class="section-subtitle">Royal Functions of the Meme Queen’s Economy</p>
+
+    <div class="token-icons">
+      Upload your token utility poster here:
+      <strong>UPLOAD_TOKEN_UTILITY_POSTER_HERE.png</strong> or use the cards below.
+    </div>
+
+    <div class="card-row">
+      <div class="card">
+        <h3>Staking Rewards</h3>
+        <p>Earn rewards by staking your $GLOXI and strengthening the royal treasury.</p>
+      </div>
+      <div class="card">
+        <h3>Buyback & Burn</h3>
+        <p>Regular buybacks and burns reduce supply, reinforcing scarcity and prestige.</p>
+      </div>
+      <div class="card">
+        <h3>DAO Governance</h3>
+        <p>Community‑driven decisions and voting power shape the future of the GlossiVerse.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN THE COMMUNITY / COMMUNITY PORTAL -->
+  <section id="community">
+    <h2 class="section-title">JOIN THE ROYAL COMMUNITY</h2>
+    <p class="section-subtitle">Where GlossiCats Gather, Trade, and Reign</p>
+
+    <div class="community-grid">
+      <div class="community-card">
+        <h3>STAY GLOSSY</h3>
+        <p>Follow the throne on X (Twitter).</p>
+        <a href="https://x.com/glossicat7" target="_blank">https://x.com/glossicat7</a>
+      </div>
+      <div class="community-card">
+        <h3>ROYAL CHATROOM</h3>
+        <p>Enter the royal Telegram court.</p>
+        <a href="https://t.me/+wJ_KdEbyNcNxNDdh" target="_blank">https://t.me/+wJ_KdEbyNcNxNDdh</a>
+      </div>
+      <div class="community-card">
+        <h3>PALACE COUNCIL</h3>
+        <p>Join the Discord council of GlossiCats.</p>
+        <a href="https://discord.gg/AwrCTKeRX" target="_blank">https://discord.gg/AwrCTKeRX</a>
+      </div>
+      <div class="community-card">
+        <h3>MEME QUEEN</h3>
+        <p>Watch the Meme Queen’s reign on TikTok.</p>
+        <a href="https://www.tiktok.com/@glossicat?_r=1&_t=9Zf8YriaXe" target="_blank">
+          https://www.tiktok.com/@glossicat?_r=1&_t=9Zf8YriaXe
+        </a>
+      </div>
+      <div class="community-card">
+        <h3>ROYAL LIFESTYLE</h3>
+        <p>See the royal lifestyle on Instagram.</p>
+        <a href="https://www.instagram.com/officialglossicat" target="_blank">
+          https://www.instagram.com/officialglossicat
+        </a>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-gold">Join the Royal Community</button>
+    </div>
+  </section>
+
+  <!-- TREASURY TRACKER -->
+  <section id="treasury">
+    <h2 class="section-title">TREASURY TRACKER</h2>
+    <p class="section-subtitle">$GLOXI Treasury Value & Royal Reserves</p>
+
+    <div class="treasury-layout">
+      <div class="treasury-chart">
+        <!-- UPLOAD TREASURY CHART IMAGE HERE -->
+        <p>
+          Upload your treasury chart image here:
+          <strong>UPLOAD_TREASURY_CHART_IMAGE_HERE.png</strong>
+          showing upward momentum and royal reserves.
+        </p>
+      </div>
+      <div class="treasury-stats">
+        <p><strong>Treasury Balance:</strong> Display your live treasury value here.</p>
+        <p><strong>Total $GLOXI Tokens:</strong> Display your total supply or circulating supply here.</p>
+        <p style="margin-top:10px;">
+          Quiet moves, loud results. Every buy strengthens the kingdom and expands the GlossiVerse.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap">
+    <h2 class="section-title">ROADMAP</h2>
+    <p class="section-subtitle">Elegance Transforms Destiny</p>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-phase">
+        <h3>PHASE 1 – EMERGENCE</h3>
+        <div class="status">Status: Topcat</div>
+        <ul>
+          <li>Launch on Solana</li>
+          <li>Core branding & website</li>
+          <li>Key listings achieved</li>
+          <li>Social channels initiated</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <h3>PHASE 2 – HIGH SOCIETY</h3>
+        <div class="status">Status: Active</div>
+        <ul>
+          <li>Community growth expansion</li>
+          <li>Continued marketing efforts</li>
+          <li>Exclusive partnerships</li>
+          <li>Alliance building</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <h3>PHASE 3 – GLAMOUR FRAMEWORK</h3>
+        <div class="status">Status: Upcoming</div>
+        <ul>
+          <li>Enhanced rewards & utility</li>
+          <li>Holder loyalty & burns</li>
+          <li>Expanding collaborations</li>
+          <li>Strategic scaling</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <h3>PHASE 4 – ROYAL ASCENSION</h3>
+        <div class="status">Status: Future</div>
+        <ul>
+          <li>Global presence expansion</li>
+          <li>Exclusive community events</li>
+          <li>Major partnerships & integrations</li>
+          <li>Royal branding evolution</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <h3>PHASE 5 – GLITTER LEGACY</h3>
+        <div class="status">Status: Long Term</div>
+        <ul>
+          <li>Enduring meme brand</li>
+          <li>Expanded token utility</li>
+          <li>Royalty ecosystem expansion</li>
+          <li>Continuous innovation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section id="mission-vision">
+    <h2 class="section-title">MISSION & VISION</h2>
+    <p class="section-subtitle">The Royal Philosophy of GlossiCat</p>
+
+    <div class="mv-grid">
+      <div class="mv-block">
+        <h3>OUR MISSION</h3>
+        <p>
+          GlossiCat’s mission is to elevate meme culture through intentional design, cinematic storytelling,
+          and community‑driven expansion. We exist to build a digital kingdom where creativity, strategy,
+          and culture converge—empowering holders, inspiring creators, and transforming a meme into a global brand
+          with real momentum and lasting impact.
+        </p>
+      </div>
+      <div class="mv-block">
+        <h3>OUR VISION</h3>
+        <p>
+          Our vision is to evolve GlossiCat into a cross‑platform digital franchise—a living ecosystem of lore,
+          utility, partnerships, and global reach. We aim to expand the GlossiVerse beyond borders, shaping a future
+          where meme tokens become cultural icons, communities become royal courts, and digital storytelling becomes
+          a new form of economic power.
+        </p>
+      </div>
+    </div>
+
+    <div class="tokenomics-poster">
+      <!-- UPLOAD TOKENOMICS POSTER HERE -->
+      <p>
+        Upload your tokenomics scroll/poster here:
+        <strong>UPLOAD_TOKENOMICS_POSTER_IMAGE_HERE.png</strong>
+        with total supply, distribution, taxes, and utility.
+      </p>
+    </div>
+  </section>
+
+  <!-- BUY GLOXI SECONDARY SECTION -->
+  <section id="buy-bottom">
+    <h2 class="section-title">BUY $GLOXI</h2>
+    <p class="section-subtitle">Enter the Royal Treasury</p>
+
+    <p style="text-align:center; max-width:700px; margin:0 auto 20px;">
+      Claim your throne in the GlossiVerse by acquiring $GLOXI—the luxury meme token of Solana.
+      Quiet moves, loud results. Every buy strengthens the kingdom.
+    </p>
+
+    <div class="btn-row">
+      <button class="btn-gold" onclick="openBuyPopup()">Buy on Solana</button>
+      <button class="btn-outline">Buy via Jupiter</button>
+    </div>
+
+    <div class="upload-note" style="text-align:center; margin-top:15px;">
+      Upload your Buy $GLOXI hero image or poster here:
+      <strong>UPLOAD_BUY_GLOXI_POSTER_IMAGE_HERE.png</strong>
+    </div>
+  </section>
+
+  <!-- ROYAL FAQ CHAMBER -->
+  <section id="faq">
+    <h2 class="section-title">ROYAL FAQ CHAMBER</h2>
+    <p class="section-subtitle">Answers from the Throne</p>
+
+    <div class="faq-grid">
+      <div class="faq-list">
+        <h3>WHAT IS GLOSSICAT?</h3>
+        <p>GlossiCat is a luxury meme token on Solana, blending wealth, confidence, and creative energy.</p>
+
+        <h3>HOW DO I BUY $GLOXI?</h3>
+        <p>Use a Solana wallet (such as Phantom) or Jupiter Exchange to swap SOL for $GLOXI—the royal currency of the GlossiVerse.</p>
+
+        <h3>WHAT IS THE GLOSSIVERSE?</h3>
+        <p>
+          The GlossiVerse is the expanding digital kingdom powered by Solana and strengthened by the GlossiCat community.
+          It is the realm where her lore unfolds, relics hold power, citizens gather, and her ascension takes place.
+        </p>
+
+        <h3>IS LIQUIDITY LOCKED?</h3>
+        <p>Yes—the royal treasury is secured and ownership renounced for transparency.</p>
+
+        <h3>WHERE CAN I JOIN THE COMMUNITY?</h3>
+        <p>Through the royal channels: X (Twitter), Telegram, TikTok, Instagram, Discord, and more.</p>
+      </div>
+      <div class="faq-media">
+        <!-- UPLOAD FAQ / LORE VIDEO THUMBNAIL HERE -->
+        <p><strong>ROYAL FAQ MEDIA AREA</strong></p>
+        <p>
+          Upload your Royal FAQ or lore animation thumbnail here:
+          <strong>UPLOAD_FAQ_THUMBNAIL_IMAGE_HERE.png</strong>.
+        </p>
+        <div class="btn-row" style="margin-top:10px;">
+          <button class="btn-gold">Play Lore Animation</button>
+          <button class="btn-outline">Explore the GlossiVerse</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- BUY GLOXI POPUP -->
+<div class="popup-overlay" id="buyPopup">
+  <div class="popup">
+    <!-- UPLOAD BUY GLOXI POPUP IMAGE HERE -->
+    <img src="UPLOAD_BUY_GLOXI_POPUP_IMAGE_HERE.png" alt="Buy GLOXI Popup">
+    <h2>Buy $GLOXI</h2>
+    <p>
+      Enter the royal treasury and claim your share of the GlossiVerse.
+      Swap SOL for $GLOXI using your preferred Solana DEX.
+    </p>
+    <p style="font-size:12px;">
+      Contract Address:<br>
+      <code>6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K</code>
+    </p>
+    <div class="btn-row" style="margin-top:12px;">
+      <button class="btn-gold">Open Solana DEX</button>
+      <button class="btn-outline" onclick="closeBuyPopup()">Close</button>
+    </div>
+    <div class="popup-close" onclick="closeBuyPopup()">Close window</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h3>$GLOXI • Luxury Meme Token • Solana</h3>
+      <p style="font-size:13px;">
+        GlossiCat reigns over a kingdom of culture, confidence, and quiet power.
+        The GlossiVerse is her realm—built by holders, amplified by lore, and crowned by meme royalty.
+      </p>
+      <div class="footer-ca">
+        Contract Address:
+        <code>6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K</code>
+      </div>
+    </div>
+    <div class="footer-links">
+      <p><strong>Navigation</strong></p>
+      <a href="#about">About</a>
+      <a href="#glossiverse">GlossiVerse</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#mission-vision">Mission & Vision</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#community">Community</a>
+      <a href="#lore">Lore</a>
+      <a href="#faq">Royal FAQ Chamber</a>
+    </div>
+  </div>
+  <p style="text-align:center; font-size:11px; margin-top:15px;">
+    © 2024 $GLOXI • All Rights Reserved • Quiet Moves, Loud Results
+  </p>
+</footer>
+
+<script>
+  function openBuyPopup() {
+    document.getElementById('buyPopup').style.display = 'flex';
+  }
+  function closeBuyPopup() {
+    document.getElementById('buyPopup').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
