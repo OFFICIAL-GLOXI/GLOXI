@@ -26,15 +26,13 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-image: url("IMG_1853.jpeg"); /* FULL PAGE BACKGROUND */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: var(--text-dark);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+  font-family: 'Montserrat', sans-serif;
+  background: url("IMG_1853.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-dark);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
 
     a {
       color: var(--gold);
@@ -246,7 +244,35 @@
       margin-top: 8px;
       color: rgba(0,0,0,0.6);
     }
+.hero-buy {
+  margin-top: 20px;
+  text-align: left;
+}
 
+.hero-links {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.hero-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+    .hero-banner-image {
+  width: 100%;
+  margin: 40px auto 0 auto;
+  text-align: center;
+}
+
+.hero-banner-image img {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 16px;
+  border: 1px solid rgba(212,175,55,0.4);
+}
     /* ABOUT */
     .about-grid {
       display: grid;
@@ -705,28 +731,36 @@
             where confidence, culture, and cinematic storytelling converge into a royal digital kingdom.
           </p>
 
-          <div class="btn-row" style="margin-top:20px;">
-            <button class="btn-gold" onclick="openBuyPopup()">Buy GLOXI</button>
-          </div>
+          <!-- BUY BUTTON (LEFT UNDER TEXT) -->
+<div class="hero-buy">
+  <button class="btn-gold" onclick="openBuyPopup()">Buy GLOXI</button>
+</div>
 
-          <div class="btn-row" style="margin-top:20px;">
-            <a class="btn-gold" href="https://t.me/GLOSSIPORTAL" target="_blank">Join the Kingdom</a>
-            <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">View Chart</a>
-            <a class="btn-outline" href="https://glossicat.com" target="_blank">Explore the GlossiVerse</a>
-          </div>
+<!-- THREE BUTTONS BELOW HERO IN 3 COLUMNS -->
+<section class="hero-links">
+  <div class="hero-links-grid">
+    <a class="btn-outline" href="https://t.me/GLOSSIPORTAL" target="_blank">Join the Kingdom</a>
+    <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">View Chart</a>
+    <a class="btn-outline" href="https://glossicat.com" target="_blank">Explore the GlossiVerse</a>
+  </div>
+</section>
         </div>
 
         <div class="hero-right">
           <div class="hero-img-wrap">
             <!-- HERO PIC IMG_1964 -->
-            <img src="IMG_1964.jpeg" alt="Glossi Hero">
+            <img src="IMG_1964.png" alt="Glossi Hero">
           </div>
           <div class="hero-note">
-            Upload hero image: <strong>IMG_1964.jpeg</strong>
+            
           </div>
         </div>
       </div>
     </section>
+<!-- FULL-WIDTH BANNER IMAGE UNDER 3-COLUMN BUTTONS -->
+<section class="hero-banner-image">
+  <img src="IMG_1871.jpeg" alt="Glossi Banner">
+</section>
 
     <!-- WELCOME SECTION (ABOVE ABOUT) -->
     <section id="welcome">
@@ -755,7 +789,7 @@
         <!-- LUXURY MEETS MEME IMAGE IMG_1923 -->
         <img src="IMG_1923.jpeg" alt="Luxury Meets Meme">
         <div class="upload-note">
-          Upload luxury banner: <strong>IMG_1923.jpeg</strong>
+          
         </div>
       </div>
 
@@ -829,7 +863,7 @@
             <source src="My Movie 3.mp4" type="video/mp4">
           </video>
           <div class="upload-note">
-            Upload lore video: <strong>My Movie 3.mp4</strong>
+            
           </div>
         </div>
       </div>
@@ -876,63 +910,58 @@
       <p class="section-subtitle">Where GlossiCats Gather, Trade, and Reign</p>
 
       <div class="community-grid">
-        <div class="community-card">
-          <div class="community-icon">
-            <!-- BIRD ICON FOR X/TWITTER -->
-            <img src="IMG_1931.jpeg" alt="Twitter Icon">
-          </div>
-          <h3>STAY GLOSSY</h3>
-          <p>Follow the Throne on X (Twitter).</p>
-          <a href="https://x.com/glossicat7" target="_blank">https://x.com/glossicat7</a>
+      <div class="community-card">
+        <div class="community-icon">
+          <!-- BIRD ICON FOR X/TWITTER -->
+          <img src="IMG_1931.jpeg" alt="Twitter Icon">
         </div>
-
-        <div class="community-card">
-          <div class="community-icon">
-            <!-- AIRPLANE ICON FOR TELEGRAM -->
-            <img src="IMG_1961.jpeg" alt="Telegram Icon">
-          </div>
-          <h3>ROYAL CHATROOM</h3>
-          <p>Enter the royal Telegram court.</p>
-          <a href="https://t.me/GLOSSIPORTAL" target="_blank">https://t.me/GLOSSIPORTAL</a>
-        </div>
-
-        <div class="community-card">
-          <div class="community-icon">
-            <!-- TIKTOK ICON -->
-            <img src="IMG_1935.jpeg" alt="TikTok Icon">
-          </div>
-          <h3>MEME QUEEN</h3>
-          <p>Watch the Meme Queen’s reign on TikTok.</p>
-          <a href="https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe" target="_blank">
-            https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe
-          </a>
-        </div>
-
-        <div class="community-card">
-          <div class="community-icon">
-            <!-- INSTAGRAM ICON -->
-            <img src="IMG_1936.jpeg" alt="Instagram Icon">
-          </div>
-          <h3>ROYAL LIFESTYLE</h3>
-          <p>See the royal lifestyle on Instagram.</p>
-          <a href="https://www.instagram.com/officialglossicat" target="_blank">
-            https://www.instagram.com/officialglossicat
-          </a>
-        </div>
-
-        <div class="community-card">
-          <div class="community-icon">
-            <!-- DISCORD ICON -->
-            <img src="IMG_1960.jpeg" alt="Discord Icon">
-          </div>
-          <h3>PALACE COUNCIL</h3>
-          <p>Join the Discord council of GlossiCats.</p>
-          <a href="https://discord.gg/AwrCTKcRX" target="_blank">
-            https://discord.gg/AwrCTKcRX
-          </a>
-        </div>
+        <h3>STAY GLOSSY</h3>
+        <p>Follow the Throne on X (Twitter).</p>
+        <a href="https://x.com/glossicat7" target="_blank">https://x.com/glossicat7</a>
       </div>
-      <!-- JOIN BUTTON REMOVED AS REQUESTED -->
+      <div class="community-card">
+        <div class="community-icon">
+          <!-- AIRPLANE ICON FOR TELEGRAM -->
+          <img src="IMG_1961.jpeg" alt="Telegram Icon">
+        </div>
+        <h3>ROYAL CHATROOM</h3>
+        <p>Enter the royal Telegram court.</p>
+        <a href="https://t.me/GLOSSIPORTAL" target="_blank">https://t.me/GLOSSIPORTAL</a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">
+          <!-- TIKTOK ICON -->
+          <img src="IMG_1935.jpeg" alt="TikTok Icon">
+        </div>
+        <h3>MEME QUEEN</h3>
+        <p>Watch the Meme Queen’s reign on TikTok.</p>
+        <a href="https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe" target="_blank">
+          https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe
+        </a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">
+          <!-- INSTAGRAM ICON -->
+          <img src="IMG_1936.jpeg" alt="Instagram Icon">
+        </div>
+        <h3>ROYAL LIFESTYLE</h3>
+        <p>See the royal lifestyle on Instagram.</p>
+        <a href="https://www.instagram.com/officialglossicat" target="_blank">
+          https://www.instagram.com/officialglossicat
+        </a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">
+          <!-- DISCORD ICON -->
+          <img src="IMG_1960.jpeg" alt="Discord Icon">
+        </div>
+        <h3>PALACE COUNCIL</h3>
+        <p>Join the Discord council of GlossiCats.</p>
+        <a href="https://discord.gg/AwrCTKcRX" target="_blank">
+          https://discord.gg/AwrCTKcRX
+        </a>
+      </div>
+    </div>
     </section>
 
     <!-- TREASURY TRACKER -->
@@ -943,15 +972,15 @@
       <div class="treasury-layout">
         <div class="treasury-chart">
           <!-- IMG_1925 TREASURY IMAGE -->
-          <img src="IMG_1925.png" alt="Treasury Chart">
+          <img src="IMG_1925.jpeg" alt="Treasury Chart">
           <div class="upload-note">
-            Treasury tracker image: <strong>IMG_1925.jpeg</strong>
+            
           </div>
         </div>
 
         <div class="treasury-stats">
-          <p><strong>Treasury Balance:</strong> Display your live treasury value here.</p>
-          <p><strong>Total GLOXI Tokens:</strong> Display your total supply or circulating supply here.</p>
+          <p><strong>Treasury Balance:</strong> ....</p>
+          <p><strong>Total GLOXI Tokens:</strong> ...</p>
           <p style="margin-top:10px;">
             Quiet moves, loud results. Every buy strengthens the kingdom and expands the GlossiVerse.
           </p>
@@ -960,17 +989,17 @@
     </section>
 
     <!-- ROADMAP -->
-    <section id="roadmap">
-      <h2 class="section-title">ROADMAP</h2>
-      <p class="section-subtitle">Elegance Transforms Destiny</p>
+     <section id="roadmap">
+    <h2 class="section-title">ROADMAP</h2>
+    <p class="section-subtitle">Elegance Transforms Destiny</p>
 
-      <div class="roadmap-center-img">
-        <!-- ROADMAP CENTER IMAGE IMG_1820 -->
-        <img src="IMG_1820.jpeg" alt="Roadmap Center Image">
-        <div class="upload-note">
-          Upload roadmap centerpiece: <strong>IMG_1820.jpeg</strong>
-        </div>
+    <div class="roadmap-center-img">
+      <!-- ROADMAP CENTER IMAGE IMG_1820 -->
+      <img src="IMG_1863.png" alt="Roadmap Center Image">
+      <div class="upload-note">
+        
       </div>
+    </div>
 
       <div class="roadmap-text-block">
         <p><strong>LAUNCH CEREMONY</strong><br><br>
@@ -1117,7 +1146,7 @@
         <!-- UPDATED TOKENOMICS POSTER WITH RED CARPET GLOSSI -->
         <img src="IMG_1927.jpeg" alt="GLOXI Tokenomics Poster">
         <div class="upload-note">
-          Upload tokenomics poster (red carpet Glossi version): <strong>IMG_1927.jpeg</strong>
+          
         </div>
       </div>
     </section>
@@ -1129,7 +1158,7 @@
 
       <div class="buy-banner">
         <!-- BANNER IMAGE IMG_1913 -->
-        <img src="IMG_1913.jpeg" alt="Buy GLOXI Banner">
+        <img src="IMG_1971.jpeg" alt="Buy GLOXI Banner">
         <div class="upload-note">
           Upload buy banner: <strong>IMG_1913.jpeg</strong>
         </div>
@@ -1179,6 +1208,9 @@
           <p style="margin-top:10px; font-size:11px; color:rgba(0,0,0,0.7);">
             GlossiCat, GLOXI, and the GlossiVerse are part of a creative luxury meme brand and digital kingdom concept.
             All narrative, imagery, and branding elements are part of the royal creative framework.
+            GlossiCat™, GLOXI™, and all related names, characters, logos, and brand assets are proprietary trademarks of their respective owners. 
+            Unauthorized use, reproduction, or impersonation of the GLOXI or GlossiCat brand — including fake tokens, misleading accounts, or derivative 
+            projects — is strictly prohibited. Violators may face legal action and removal from all associated platforms.
           </p>
         </div>
 
@@ -1188,7 +1220,7 @@
             <source src="My Movie 3.mp4" type="video/mp4">
           </video>
           <div class="upload-note">
-            Upload FAQ / lore video: <strong>My Movie 3.mp4</strong>
+            
           </div>
         </div>
       </div>
@@ -1210,23 +1242,27 @@
         <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">Buy on GeckoTerminal</a>
       </div>
 
-      <div class="popup-close" onclick="closeBuyPopup()">Close</div>
-    </div>
-  </div>
-
   <footer>
     <div class="footer-inner">
       <div>
         <h3>$GLOXI • Luxury Meme Queen of Solana</h3>
         <p style="font-size:12px;">
-          Quiet Moves. Loud Results. A royal meme kingdom built on culture, precision, and community.
+          Glossicat reigns over a kingdom of culture, confidence, community, prevision and humbleness. Quiet Moves. Loud Results. 
         </p>
       </div>
       <div class="footer-links">
-        <a href="#hero">Top</a>
-        <a href="#about">About</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#buy-bottom">Buy GLOXI</a>
+         <a href="#hero">Hero</a>
+      <a href="#about">About</a>
+      <a href="#kingdom-chronicles">Lore</a>
+      <a href="#welcome">Welcome</a>
+      <a href="#token-utility">Token Utility</a>
+      <a href="#community">Community</a>
+      <a href="#treasury">Treasury</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#mission-vision">Mission & Vision</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#buy-bottom">Buy GLOSI</a>
+      <a href="#faq">Royal FAQ</a>
       </div>
     </div>
   </footer>
@@ -1242,3 +1278,7 @@
   </script>
 </body>
 </html>
+<p style="text-align:center; font-size:11px; margin-top:15px;">
+    © 2026 GLOXI • All Rights Reserved • Quiet Moves, Loud Results 
+  </p>
+</footer>
