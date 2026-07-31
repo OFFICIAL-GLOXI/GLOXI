@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <title>$GLOXI • Luxury Meme Queen of Solana</title>
@@ -26,7 +25,7 @@
   padding: 0;
 }
 
-/* BACKGROUND: FULL IMAGE, FIXED, REPEAT-Y */
+/* GLOBAL BACKGROUND */
 body {
   font-family: 'Montserrat', sans-serif;
   background: url("IMG_1877.jpeg") center top fixed;
@@ -189,22 +188,18 @@ section {
   background: rgba(212,175,55,0.1);
 }
 
-/* HERO SECTION (BANNER + HERO IMAGE) */
+/* HERO — NO IMG_1853, NO PADDING */
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 40px;
   align-items: center;
-  padding-top: 80px;
-  padding-bottom: 40px;
-  background-image: url("IMG_1853.jpeg");
-  background-size: cover;
-  background-position: center;
-  border-bottom: 1px solid rgba(212,175,55,0.3);
+  padding: 0;
+  background: transparent;
 }
 
 .hero-overlay {
-  background: rgba(255,255,255,0.0); /* fully transparent backing */
+  background: transparent;
   padding: 40px 30px;
   border-radius: 20px;
 }
@@ -238,11 +233,11 @@ section {
   position: relative;
 }
 
-/* HERO IMAGE: gold border, no white overlay */
+/* HERO IMAGE — GOLD BORDER, TRANSPARENT INTERIOR */
 .hero-img-wrap {
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(212,175,55,0.8);
+  border: 1px solid rgba(212,175,55,0.4);
   background: transparent;
   padding: 0;
 }
@@ -252,7 +247,13 @@ section {
   border-radius: 20px;
 }
 
-/* HERO LINKS BELOW HERO */
+.hero-note {
+  font-size: 11px;
+  margin-top: 8px;
+  color: rgba(0,0,0,0.6);
+}
+
+/* HERO LINKS */
 .hero-links {
   margin-top: 40px;
   text-align: center;
@@ -266,7 +267,7 @@ section {
   margin: 0 auto;
 }
 
-/* FULL-WIDTH BANNER IMAGE UNDER BUTTONS */
+/* FULL-WIDTH BANNER IMAGE UNDER 3-COLUMN BUTTONS */
 .hero-banner-image {
   width: 100%;
   margin: 40px auto 0 auto;
@@ -313,7 +314,7 @@ section {
   margin: 0 auto 25px auto;
   border-radius: 16px;
   border: 1px solid rgba(212,175,55,0.4);
-  background: var(--overlay);
+  background: transparent;
   padding: 10px;
   text-align: center;
 }
@@ -340,7 +341,7 @@ section {
 .lore-video-placeholder {
   border-radius: 16px;
   border: 1px solid rgba(212,175,55,0.4);
-  background: var(--overlay);
+  background: transparent;
   padding: 16px;
   text-align: center;
 }
@@ -369,7 +370,7 @@ section {
 
 .token-icon img {
   max-width: 80px;
-  border-radius: 50%; /* round icons */
+  border-radius: 50%;
 }
 
 /* COMMUNITY */
@@ -424,7 +425,7 @@ section {
 .treasury-chart {
   border-radius: 16px;
   border: 1px solid rgba(212,175,55,0.4);
-  background: var(--overlay);
+  background: transparent;
   padding: 16px;
   text-align: center;
 }
@@ -507,7 +508,7 @@ section {
 
 .mv-block {
   border-radius: 12px;
-  border: 1px solid rgba(212,175,55,0.6); /* gold border */
+  border: 1px solid rgba(212,175,55,0.6);
   background: var(--overlay);
   padding: 18px;
 }
@@ -527,7 +528,7 @@ section {
 .tokenomics-block {
   margin-top: 25px;
   font-size: 14px;
-  text-align: center; /* centered tokenomics text */
+  text-align: center;
 }
 
 .tokenomics-block h3 {
@@ -540,7 +541,7 @@ section {
 .tokenomics-poster {
   border-radius: 16px;
   border: 1px solid rgba(212,175,55,0.4);
-  background: var(--overlay);
+  background: transparent;
   padding: 16px;
   text-align: center;
   margin-top: 20px;
@@ -555,7 +556,7 @@ section {
 .buy-banner {
   border-radius: 16px;
   border: 1px solid rgba(212,175,55,0.4);
-  background: var(--overlay);
+  background: transparent;
   padding: 10px;
   text-align: center;
   margin-bottom: 20px;
@@ -589,7 +590,7 @@ section {
 .faq-media {
   border-radius: 16px;
   border: 1px solid rgba(212,175,55,0.4);
-  background: var(--overlay);
+  background: transparent;
   padding: 16px;
   text-align: center;
 }
@@ -730,7 +731,7 @@ footer {
 
 <main>
 
-<!-- HERO / TOP SECTION -->
+<!-- HERO / TOP SECTION (NO IMG_1853) -->
 <section id="hero">
   <div class="hero">
     <div class="hero-overlay hero-left">
@@ -758,7 +759,7 @@ footer {
     <div class="hero-right">
       <div class="hero-img-wrap">
         <!-- HERO PIC IMG_1964 -->
-        <img src="IMG_1964.jpeg" alt="Glossi Hero">
+        <img src="IMG_1964.png" alt="Glossi Hero">
       </div>
       <div class="hero-note"></div>
     </div>
@@ -774,7 +775,6 @@ footer {
 <section id="welcome">
   <h2 class="section-title">WELCOME TO THE GLOSSIVERSE</h2>
   <p class="section-subtitle">Where Royalty Meets Meme Magic</p>
-
   <div class="welcome-text">
     <p>
       The GlossiVerse is the expanding digital kingdom powered by Solana and strengthened by the GlossiCat community.
@@ -1189,7 +1189,7 @@ footer {
       <p>GLOXI is a luxury meme token on Solana, blending wealth, confidence, and creative energy.</p>
 
       <h3>HOW DO I BUY GLOXI?</h3>
-      <p>Use Phantom Wallet or Jupiter Exchange to swap SOL for GLOXI—the royal currency of the GlossiVerse.</p>
+      <p>Use Phantom Wallet or Jupiter Exchange to swap SOL for GLOXI.... the royal currency of the GlossiVerse.</p>
 
       <h3>WHAT IS THE GLOSSIVERSE?</h3>
       <p>
@@ -1199,19 +1199,15 @@ footer {
       </p>
 
       <h3>IS LIQUIDITY LOCKED?</h3>
-      <p>Yes—the royal treasury is secured and ownership renounced for transparency.</p>
+      <p>Yes. The royal treasury is secured for transparency.</p>
 
       <h3>WHERE CAN I JOIN THE COMMUNITY?</h3>
       <p>Through the royal channels: X (Twitter), Telegram, TikTok, Instagram, Discord, and more.</p>
-
-      <p style="margin-top:15px; font-size:11px;">
-        GlossiCat, GLOXI, and the GlossiVerse are creative, thematic brands and concepts. All visual assets, lore, and narrative elements are part of a fictional luxury meme universe and are not financial advice or guarantees of performance.
-      </p>
     </div>
 
     <div class="faq-media">
-      <!-- FAQ LORE / MP4 IN GOLD BOX -->
-      <video class="faq-video" controls autoplay muted loop playsinline>
+      <!-- FAQ MEDIA VIDEO IN GOLD BORDER BOX -->
+      <video controls autoplay muted loop playsinline>
         <source src="My Movie 3.mp4" type="video/mp4">
       </video>
       <div class="upload-note"></div>
@@ -1221,49 +1217,47 @@ footer {
 
 </main>
 
-<!-- BUY POPUP -->
-<div class="popup-overlay" id="buyPopup">
-  <div class="popup">
-    <h2>Enter the Royal Treasury</h2>
-    <p>Select your royal gateway to acquire GLOXI.</p>
-
-    <!-- POPUP IMAGE IMG_1926 -->
-    <img src="IMG_1926.jpeg" alt="Royal Buy Popup">
-
-    <div class="btn-row">
-      <a class="btn-gold" href="https://jup.ag/tokens/6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Jupiter</a>
-      <a class="btn-outline" href="https://raydium.io/swap/?inputMint=sol&outputMint=6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Solana</a>
-      <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">Buy on GeckoTerminal</a>
-    </div>
-
-    <div class="popup-close" onclick="closeBuyPopup()">Close</div>
-  </div>
-</div>
-
 <footer>
   <div class="footer-inner">
     <div>
       <h3>$GLOXI • Luxury Meme Queen of Solana</h3>
-      <p>Quiet Moves. Loud Results. Always.</p>
+      <p>Quiet Moves. Loud Results. Stay Glossy, Stay Wealthy.</p>
     </div>
     <div class="footer-links">
-      <a href="#welcome">Welcome</a>
+      <a href="#hero">Top</a>
       <a href="#about">About</a>
-      <a href="#kingdom-chronicles">Lore</a>
       <a href="#buy-bottom">Buy GLOXI</a>
+      <a href="#community">Community</a>
     </div>
   </div>
 </footer>
 
 <script>
 function openBuyPopup() {
-  document.getElementById('buyPopup').style.display = 'flex';
+  const overlay = document.querySelector('.popup-overlay');
+  if (overlay) overlay.style.display = 'flex';
 }
 
 function closeBuyPopup() {
-  document.getElementById('buyPopup').style.display = 'none';
+  const overlay = document.querySelector('.popup-overlay');
+  if (overlay) overlay.style.display = 'none';
 }
 </script>
+
+<!-- BUY POPUP STRUCTURE -->
+<div class="popup-overlay" onclick="closeBuyPopup()">
+  <div class="popup" onclick="event.stopPropagation()">
+    <h2>Buy GLOXI</h2>
+    <p>Select your preferred exchange to acquire GLOXI.</p>
+    <img src="IMG_1926.jpeg" alt="Buy GLOXI Popup Image">
+    <div class="btn-row">
+      <a class="btn-gold" href="https://jup.ag/tokens/6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Jupiter</a>
+      <a class="btn-outline" href="https://raydium.io/swap/?inputMint=sol&outputMint=6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Solana</a>
+      <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">Buy on GeckoTerminal</a>
+    </div>
+    <div class="popup-close" onclick="closeBuyPopup()">Close</div>
+  </div>
+</div>
 
 </body>
 </html>
