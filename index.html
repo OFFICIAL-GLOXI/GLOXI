@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <title>$GLOXI • Luxury Meme Queen of Solana</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --gold: #d4af37;
@@ -25,7 +27,10 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom, var(--white), var(--pearl));
+      background-image: url("IMG_1853.jpeg"); /* FULL PAGE BACKGROUND */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: var(--text-dark);
       line-height: 1.6;
       scroll-behavior: smooth;
@@ -190,14 +195,10 @@
       gap: 40px;
       align-items: center;
       padding-top: 80px;
-      background-image: url("IMG_1853.jpeg"); /* UPLOAD BACKGROUND IMAGE HERE */
-      background-size: cover;
-      background-position: center;
-      border-bottom: 1px solid rgba(212,175,55,0.3);
     }
 
     .hero-overlay {
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.0); /* TRANSPARENT BACKING */
       padding: 40px 30px;
       border-radius: 20px;
     }
@@ -249,7 +250,7 @@
     /* ABOUT */
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
       gap: 30px;
       align-items: flex-start;
     }
@@ -261,7 +262,7 @@
 
     .about-pill-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       margin-top: 20px;
     }
@@ -274,7 +275,9 @@
       background: var(--overlay);
     }
 
-    .about-image {
+    .about-image-centered {
+      max-width: 500px;
+      margin: 0 auto 25px auto;
       border-radius: 16px;
       border: 1px solid rgba(212,175,55,0.4);
       background: var(--overlay);
@@ -282,7 +285,7 @@
       text-align: center;
     }
 
-    .about-image img {
+    .about-image-centered img {
       width: 100%;
       border-radius: 12px;
     }
@@ -309,6 +312,12 @@
       text-align: center;
     }
 
+    .lore-video-placeholder video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
     .lore-video-placeholder p {
       font-size: 13px;
     }
@@ -327,7 +336,7 @@
 
     .token-icon img {
       max-width: 80px;
-      border-radius: 50%;
+      border-radius: 50%; /* ROUND ICONS */
     }
 
     /* COMMUNITY */
@@ -368,6 +377,7 @@
 
     .community-icon img {
       max-width: 40px;
+      border-radius: 50%;
     }
 
     /* TREASURY */
@@ -462,6 +472,13 @@
       gap: 30px;
     }
 
+    .mv-block {
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.6); /* GOLD BORDER */
+      background: var(--overlay);
+      padding: 18px;
+    }
+
     .mv-block h3 {
       font-family: 'Playfair Display', serif;
       font-size: 20px;
@@ -477,6 +494,7 @@
     .tokenomics-block {
       margin-top: 25px;
       font-size: 14px;
+      text-align: center; /* CENTERED TOKENOMICS TEXT */
     }
 
     .tokenomics-block h3 {
@@ -495,7 +513,12 @@
       margin-top: 20px;
     }
 
-    /* BUY GLOSI SECTION */
+    .tokenomics-poster img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    /* BUY GLOXI SECTION */
     .buy-banner {
       border-radius: 16px;
       border: 1px solid rgba(212,175,55,0.4);
@@ -536,6 +559,12 @@
       background: var(--overlay);
       padding: 16px;
       text-align: center;
+    }
+
+    .faq-media video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
     }
 
     /* POPUP */
@@ -621,7 +650,7 @@
       .hero {
         grid-template-columns: 1fr;
       }
-      .about-grid,
+
       .lore-grid,
       .treasury-layout,
       .mv-grid,
@@ -629,527 +658,587 @@
       .footer-inner {
         grid-template-columns: 1fr;
       }
+
+      .about-pill-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
       .nav-right {
         display: none;
       }
+
       header {
         position: static;
       }
     }
   </style>
 </head>
+
 <body>
-
-<header>
-  <div class="nav">
-    <div class="nav-left">$GLOXI</div>
-    <div class="nav-right">
-      <button class="nav-btn"><a href="#about">About</a></button>
-      <button class="nav-btn"><a href="#kingdom-chronicles">Lore</a></button>
-      <button class="nav-btn"><a href="#welcome">Welcome</a></button>
-      <button class="nav-btn"><a href="#token-utility">Token Utility</a></button>
-      <button class="nav-btn"><a href="#community">Community</a></button>
-      <button class="nav-btn"><a href="#treasury">Treasury</a></button>
-      <button class="nav-btn"><a href="#roadmap">Roadmap</a></button>
-      <button class="nav-btn"><a href="#mission-vision">Mission & Vision</a></button>
-      <button class="nav-btn"><a href="#tokenomics">Tokenomics</a></button>
-      <button class="nav-btn"><a href="#buy-bottom">Buy GLOXI</a></button>
-      <button class="nav-btn"><a href="#faq">Royal FAQ</a></button>
+  <header>
+    <div class="nav">
+      <div class="nav-left">$GLOXI</div>
+      <div class="nav-right">
+        <button class="nav-btn"><a href="#welcome">Welcome</a></button>
+        <button class="nav-btn"><a href="#about">About</a></button>
+        <button class="nav-btn"><a href="#kingdom-chronicles">Lore</a></button>
+        <button class="nav-btn"><a href="#token-utility">Token Utility</a></button>
+        <button class="nav-btn"><a href="#community">Community</a></button>
+        <button class="nav-btn"><a href="#treasury">Treasury</a></button>
+        <button class="nav-btn"><a href="#roadmap">Roadmap</a></button>
+        <button class="nav-btn"><a href="#mission-vision">Mission & Vision</a></button>
+        <button class="nav-btn"><a href="#tokenomics">Tokenomics</a></button>
+        <button class="nav-btn"><a href="#buy-bottom">Buy GLOXI</a></button>
+        <button class="nav-btn"><a href="#faq">Royal FAQ</a></button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
+  <main>
+    <!-- HERO / TOP SECTION -->
+    <section id="hero">
+      <div class="hero">
+        <div class="hero-overlay hero-left">
+          <h1>$GLOXI <span>Live on Solana</span></h1>
+          <p>
+            Stay glossy, stay wealthy. GLOXI is the luxury meme token of Solana,
+            where confidence, culture, and cinematic storytelling converge into a royal digital kingdom.
+          </p>
 
-  <!-- HERO / TOP BUY SECTION -->
-  <section id="hero">
-    <div class="hero">
-      <div class="hero-overlay hero-left">
-        <h1>$GLOXI <span>Live on Solana</span></h1>
+          <div class="btn-row" style="margin-top:20px;">
+            <button class="btn-gold" onclick="openBuyPopup()">Buy GLOXI</button>
+          </div>
+
+          <div class="btn-row" style="margin-top:20px;">
+            <a class="btn-gold" href="https://t.me/GLOSSIPORTAL" target="_blank">Join the Kingdom</a>
+            <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">View Chart</a>
+            <a class="btn-outline" href="https://glossicat.com" target="_blank">Explore the GlossiVerse</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-img-wrap">
+            <!-- HERO PIC IMG_1964 -->
+            <img src="IMG_1964.jpeg" alt="Glossi Hero">
+          </div>
+          <div class="hero-note">
+            Upload hero image: <strong>IMG_1964.jpeg</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WELCOME SECTION (ABOVE ABOUT) -->
+    <section id="welcome">
+      <h2 class="section-title">WELCOME TO THE GLOSSIVERSE</h2>
+      <p class="section-subtitle">Where Royalty Meets Meme Magic</p>
+
+      <div class="welcome-text">
         <p>
-          Stay glossy, stay wealthy. GLOXI is the luxury meme token of Solana,
-          where confidence, culture, and cinematic storytelling converge into a royal digital kingdom.
-         <div class="btn-row" style="margin-top:20px;">
-      <button class="btn-gold" onclick="openBuyPopup()">Open Buy Popup</button>
-    </div>
-  </section>
+          The GlossiVerse is the expanding digital kingdom powered by Solana and strengthened by the GlossiCat community.
+          It is the realm where her lore unfolds, relics hold power, citizens gather, and her ascension takes place.
         </p>
-        <div class="btn-row" style="justify-content:flex-start; margin-top:20px;">
-          <a class="btn-gold" href="https://t.me/GLOSSIPORTAL" target="_blank">Join the Kingdom</a>
-          <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">View Chart</a>
-          <a class="btn-outline" href="https://glossicat.com" target="_blank">Explore the GlossiVerse</a>
-        </div>
+        <p>
+          Launch ceremonies, meme queen ascension, community coronations, and royal expansion all weave together into a living narrative.
+          Every holder becomes part of this world, contributing to its growth, culture, and momentum.
+        </p>
       </div>
-      <div class="hero-right">
-        <div class="hero-img-wrap">
-          <!-- UPLOAD HERO PIC IMG_1871 HERE -->
-          <img src="IMG_1871.jpeg" alt="Glossi Hero">
-        </div>
-        <div class="hero-note">
-          
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT GLOSSI -->
-  <section id="about">
-    <h2 class="section-title">ABOUT GLOSSICAT - $GLOXI</h2>
-    <p class="section-subtitle">The Luxury Meme Queen of Solana</p>
+    <!-- ABOUT GLOSSI -->
+    <section id="about">
+      <h2 class="section-title">ABOUT GLOSSICAT - $GLOXI</h2>
+      <p class="section-subtitle">The Luxury Meme Queen of Solana</p>
 
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="about-pill-row">
-          <div class="about-pill">
-            <strong>LUXURY AESTHETIC</strong><br><br>
-            GLOXI is more than a meme token, it's a symbol of intentional creation, disciplined growth, and the power of community-driven momentum. Born from the idea that culture moves markets, GlossiCat blends storytelling, design, and strategic execution to build a brand that feels alive. Every chapter, every drop, every move is crafted to strengthen the ecosystem and reward the holders who believe early. GlossiCat represents quiet precision and loud results... a project built on transparency, creativity, and long-term value. Through the GlossiVerse, animated lore, and utility-driven expansions, GlossiCat evolves from a meme into a living digital franchise, designed to scale across platforms, partnerships, and experiences. This is not just a token. This is a brand, a world, and a movement.
-          </div>
-          <div class="about-pill">
-            <strong>MEME-FIRST CULTURE</strong><br><br>
-            GlossiCat Culture is built on intentional movement, collective elevation, and the belief that excellence is a standard, not an accident. We operate with precision, creativity, and quiet confidence. Every action is deliberate. Every drop is crafted. Every chapter is designed to strengthen the brand and empower the community that stands behind it. Our culture values quality over chaos, strategy over noise, and impact over impulse. We celebrate bold ideas, disciplined execution, and the art of showing up with elegance... even in a fast-moving space. GlossiCat holders move with purpose, build with intention, and contribute to a world where meme culture evolves into something iconic, cinematic, and lasting. This is a community that doesn’t chase hype — we create it. This is a movement that doesn’t follow trends... but sets them. This is GlossiCat the Culture: Quiet Moves. Loud Results. Always.
-          </div>
-          <div class="about-pill">
-            <strong>COMMUNITY-DRIVEN</strong><br><br>
-            The kingdom grows through its citizens: every holder, every meme, every royal decree expands the GlossiVerse. But that’s only the beginning. The GlossiVerse is not powered by charts or chance, it is powered by people, by the citizens who choose to step into the kingdom and carry its signal forward. Every time a holder shares a meme, crafts a moment, or spreads the story, they are not just participating… they are building. They are shaping the culture, strengthening the throne, and expanding the borders of GlossiCat’s realm. In this kingdom, community isn’t an accessory, it is the engine. It is the royal guard, the storytellers, the architects of momentum. Every citizen becomes a beacon. Every meme becomes a decree. Every action becomes a brick in the palace walls. The GlossiVerse grows because its people choose to grow it... not through noise, but through intentional movement, shared conviction, and the belief that a meme can become a monarchy when the community behind it moves with purpose. Not hype. Not chaos. Not randomness. But citizenship, a collective force that turns a token into a kingdom, a meme into a movement, and a holder into a royal contributor to a world that expands with every glossy step.
-          </div>
-        </div>
-      </div>
-      <div class="about-image">
+      <!-- CENTERED IMAGE UNDER SUBTITLE -->
+      <div class="about-image-centered">
         <!-- LUXURY MEETS MEME IMAGE IMG_1923 -->
         <img src="IMG_1923.jpeg" alt="Luxury Meets Meme">
         <div class="upload-note">
-          
+          Upload luxury banner: <strong>IMG_1923.jpeg</strong>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- KINGDOM CHRONICLES / LORE -->
-  <section id="kingdom-chronicles">
-    <h2 class="section-title">KINGDOM CHRONICLES</h2>
-    <p class="section-subtitle">Lore, Trailers, and Royal Myth</p>
+      <div class="about-grid">
+        <div class="about-pill-row">
+          <div class="about-pill">
+            <strong>LUXURY AESTHETIC</strong><br><br>
+            GLOXI is more than a meme token, it's a symbol of intentional creation, disciplined growth, and the power of community-driven momentum.
+            Born from the idea that culture moves markets, GlossiCat blends storytelling, design, and strategic execution to build a brand that feels alive.
+            Every chapter, every drop, every move is crafted to strengthen the ecosystem and reward the holders who believe early.
+            GlossiCat represents quiet precision and loud results... a project built on transparency, creativity, and long-term value.
+            Through the GlossiVerse, animated lore, and utility-driven expansions, GlossiCat evolves from a meme into a living digital franchise,
+            designed to scale across platforms, partnerships, and experiences. This is not just a token. This is a brand, a world, and a movement.
+          </div>
 
-    <div class="lore-grid">
-      <div>
-        <p>
-          In the heart of Solania, the radiant capital of the GlossisVerse, GlossiCat’s signal grows stronger with every new holder amplifying her power, awakening fragments of the Seventh Moon, a cosmic force tied to her royal ascension.
-        </p>
-        <p>
-          The GlossisVerse expands as new citizens join the mission, strengthening the kingdom and pushing GlossiCat toward her destined reign. Preview the first lore trailer and step deeper into the kingdom’s story.
-        </p>
-        <div class="btn-row" style="justify-content:flex-start;">
-          <button class="btn-gold">Play Lore Animation</button>
-          <a class="btn-outline" href="https://glossicat.com" target="_blank">Explore the GlossiVerse</a>
-          <button class="btn-outline">See More</button>
+          <div class="about-pill">
+            <strong>MEME-FIRST CULTURE</strong><br><br>
+            GlossiCat Culture is built on intentional movement, collective elevation, and the belief that excellence is a standard, not an accident.
+            We operate with precision, creativity, and quiet confidence. Every action is deliberate. Every drop is crafted.
+            Every chapter is designed to strengthen the brand and empower the community that stands behind it.
+            Our culture values quality over chaos, strategy over noise, and impact over impulse.
+            We celebrate bold ideas, disciplined execution, and the art of showing up with elegance... even in a fast-moving space.
+            GlossiCat holders move with purpose, build with intention, and contribute to a world where meme culture evolves into something iconic,
+            cinematic, and lasting. This is a community that doesn’t chase hype — we create it. This is a movement that doesn’t follow trends — we set them.
+            This is GlossiCat Culture: Quiet Moves. Loud Results. Always.
+          </div>
+
+          <div class="about-pill">
+            <strong>COMMUNITY-DRIVEN</strong><br><br>
+            The kingdom grows through its citizens: every holder, every meme, every royal decree expands the GlossiVerse.
+            But that’s only the beginning. The GlossiVerse is not powered by charts or chance, it is powered by people,
+            by the citizens who choose to step into the kingdom and carry its signal forward.
+            Every time a holder shares a meme, crafts a moment, or spreads the story, they are not just participating… they are building.
+            They are shaping the culture, strengthening the throne, and expanding the borders of GlossiCat’s realm.
+            In this kingdom, community isn’t an accessory, it is the engine. It is the royal guard, the storytellers, the architects of momentum.
+            Every citizen becomes a beacon. Every meme becomes a decree. Every action becomes a brick in the palace walls.
+            The GlossiVerse grows because its people choose to grow it... not through noise, but through intentional movement,
+            shared conviction, and the belief that a meme can become a monarchy when the community behind it moves with purpose.
+            Not hype. Not chaos. Not randomness. But citizenship, a collective force that turns a token into a kingdom,
+            a meme into a movement, and a holder into a royal contributor to a world that expands with every glossy step.
+          </div>
         </div>
       </div>
-      <div class="lore-video-placeholder">
-        <!-- EMBED LORE MP4 HERE: My Movie 3.mp4 -->
-        <div class="lore-media">
-      <video class="lore-video" controls autoplay muted loop playsinline>
-        <source src="My Movie 3.mp4" type="video/mp4">
-      </video>
-      <div class="lore-actions">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WELCOME SECTION -->
-  <section id="welcome">
-    <h2 class="section-title">WELCOME TO THE GLOSSIVERSE</h2>
-    <p class="section-subtitle">Where Royalty Meets Meme Magic</p>
+    <!-- KINGDOM CHRONICLES / LORE -->
+    <section id="kingdom-chronicles">
+      <h2 class="section-title">KINGDOM CHRONICLES</h2>
+      <p class="section-subtitle">Lore, Trailers, and Royal Myth</p>
 
-    <div class="welcome-text">
-      <p>
-        The GlossiVerse is the expanding digital kingdom powered by Solana and strengthened by the GlossiCat community.
-        It is the realm where her lore unfolds, relics hold power, citizens gather, and her ascension takes place.
-      </p>
-      <p>
-        Launch ceremonies, meme queen ascension, community coronations, and royal expansion all weave together into a living narrative.
-        Every holder becomes part of this world, contributing to its growth, culture, and momentum.
-      </p>
-    </div>
-  </section>
+      <div class="lore-grid">
+        <div>
+          <p>
+            In the heart of Solania — the radiant capital of the GlossisVerse — GlossiCat’s signal grows stronger with every new holder amplifying her power,
+            awakening fragments of the Seventh Moon, a cosmic force tied to her royal ascension.
+          </p>
+          <p>
+            The GlossisVerse expands as new citizens join the mission, strengthening the kingdom and pushing GlossiCat toward her destined reign.
+            Preview the first lore trailer and step deeper into the kingdom’s story.
+          </p>
 
-  <!-- TOKEN UTILITY -->
-  <section id="token-utility">
-    <h2 class="section-title">TOKEN UTILITY</h2>
-    <p class="section-subtitle">Royal Functions of the Meme Queen’s Economy</p>
+          <div class="btn-row" style="justify-content:flex-start;">
+            <!-- SEE MORE BUTTON GOES TO GLOSSICAT.COM -->
+            <a class="btn-outline" href="https://glossicat.com" target="_blank">See More</a>
+          </div>
+        </div>
 
-    <div class="card-row">
-      <div class="card">
-        <h3>Staking Rewards</h3>
-        <p>Earn rewards by staking your GLOXI and strengthening the royal treasury.</p>
-        <div class="token-icon">
-          <!-- IMG_1918 BELOW STAKING -->
-          <img src="IMG_1918.jpeg" alt="Staking Icon">
+        <div class="lore-video-placeholder">
+          <!-- EMBED LORE MP4 HERE: My Movie 3.mp4 -->
+          <video class="lore-video" controls autoplay muted loop playsinline>
+            <source src="My Movie 3.mp4" type="video/mp4">
+          </video>
+          <div class="upload-note">
+            Upload lore video: <strong>My Movie 3.mp4</strong>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <h3>Buyback & Burn</h3>
-        <p>Regular buybacks and burns reduce supply, reinforcing scarcity and prestige.</p>
-        <div class="token-icon">
-          <!-- IMG_1919 BELOW BUYBACK -->
-          <img src="IMG_1919.jpeg" alt="Buyback Icon">
-        </div>
-      </div>
-      <div class="card">
-        <h3>DAO Governance</h3>
-        <p>Community-driven decisions and voting power shape the future of the GlossiVerse.</p>
-        <div class="token-icon">
-          <!-- IMG_1921 BELOW DAO -->
-          <img src="IMG_1921.jpeg" alt="DAO Icon">
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- JOIN THE ROYAL COMMUNITY -->
-  <section id="community">
-    <h2 class="section-title">JOIN THE ROYAL COMMUNITY</h2>
-    <p class="section-subtitle">Where Glossians Gather, Trade, and Reign</p>
+    <!-- TOKEN UTILITY -->
+    <section id="token-utility">
+      <h2 class="section-title">TOKEN UTILITY</h2>
+      <p class="section-subtitle">Royal Functions of the Meme Queen’s Economy</p>
 
-    <div class="community-grid">
-      <div class="community-card">
-        <div class="community-icon">
-          <!-- BIRD ICON FOR X/TWITTER -->
-          <img src="IMG_1931.jpeg" alt="Twitter Icon">
+      <div class="card-row">
+        <div class="card">
+          <h3>Staking Rewards</h3>
+          <p>Earn rewards by staking your GLOXI and strengthening the royal treasury.</p>
+          <div class="token-icon">
+            <!-- IMG_1918 BELOW STAKING -->
+            <img src="IMG_1918.jpeg" alt="Staking Icon">
+          </div>
         </div>
-        <h3>STAY GLOSSY</h3>
-        <p>Follow the Throne on X (Twitter).</p>
-        <a href="https://x.com/glossicat7" target="_blank">https://x.com/glossicat7</a>
-      </div>
-      <div class="community-card">
-        <div class="community-icon">
-          <!-- AIRPLANE ICON FOR TELEGRAM -->
-          <img src="IMG_1961.jpeg" alt="Telegram Icon">
-        </div>
-        <h3>ROYAL CHATROOM</h3>
-        <p>Enter the royal Telegram court.</p>
-        <a href="https://t.me/GLOSSIPORTAL" target="_blank">https://t.me/GLOSSIPORTAL</a>
-      </div>
-      <div class="community-card">
-        <div class="community-icon">
-          <!-- TIKTOK ICON -->
-          <img src="IMG_1935.jpeg" alt="TikTok Icon">
-        </div>
-        <h3>MEME QUEEN</h3>
-        <p>Watch the Meme Queen’s reign on TikTok.</p>
-        <a href="https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe" target="_blank">
-          https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe
-        </a>
-      </div>
-      <div class="community-card">
-        <div class="community-icon">
-          <!-- INSTAGRAM ICON -->
-          <img src="IMG_1936.jpeg" alt="Instagram Icon">
-        </div>
-        <h3>ROYAL LIFESTYLE</h3>
-        <p>See the royal lifestyle on Instagram.</p>
-        <a href="https://www.instagram.com/officialglossicat" target="_blank">
-          https://www.instagram.com/officialglossicat
-        </a>
-      </div>
-      <div class="community-card">
-        <div class="community-icon">
-          <!-- DISCORD ICON -->
-          <img src="IMG_1960.jpeg" alt="Discord Icon">
-        </div>
-        <h3>PALACE COUNCIL</h3>
-        <p>Join the Discord council of GlossiCats.</p>
-        <a href="https://discord.gg/AwrCTKcRX" target="_blank">
-          https://discord.gg/AwrCTKcRX
-        </a>
-      </div>
-    </div>
 
-    <div class="btn-row">
-      <button class="btn-gold">Join the Royal Community</button>
-    </div>
-  </section>
+        <div class="card">
+          <h3>Buyback & Burn</h3>
+          <p>Regular buybacks and burns reduce supply, reinforcing scarcity and prestige.</p>
+          <div class="token-icon">
+            <!-- IMG_1919 BELOW BUYBACK -->
+            <img src="IMG_1919.jpeg" alt="Buyback Icon">
+          </div>
+        </div>
 
-  <!-- TREASURY TRACKER -->
-  <section id="treasury">
-    <h2 class="section-title">TREASURY TRACKER</h2>
-    <p class="section-subtitle">$GLOXI Treasury Value & Royal Reserves</p>
+        <div class="card">
+          <h3>DAO Governance</h3>
+          <p>Community-driven decisions and voting power shape the future of the GlossiVerse.</p>
+          <div class="token-icon">
+            <!-- IMG_1921 BELOW DAO -->
+            <img src="IMG_1921.jpeg" alt="DAO Icon">
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="treasury-layout">
-      <div class="treasury-chart">
-        <!-- IMG_1925 TREASURY IMAGE -->
-        <img src="IMG_1925.png" alt="Treasury Chart">
+    <!-- JOIN THE ROYAL COMMUNITY -->
+    <section id="community">
+      <h2 class="section-title">JOIN THE ROYAL COMMUNITY</h2>
+      <p class="section-subtitle">Where GlossiCats Gather, Trade, and Reign</p>
+
+      <div class="community-grid">
+        <div class="community-card">
+          <div class="community-icon">
+            <!-- BIRD ICON FOR X/TWITTER -->
+            <img src="IMG_1931.jpeg" alt="Twitter Icon">
+          </div>
+          <h3>STAY GLOSSY</h3>
+          <p>Follow the Throne on X (Twitter).</p>
+          <a href="https://x.com/glossicat7" target="_blank">https://x.com/glossicat7</a>
+        </div>
+
+        <div class="community-card">
+          <div class="community-icon">
+            <!-- AIRPLANE ICON FOR TELEGRAM -->
+            <img src="IMG_1961.jpeg" alt="Telegram Icon">
+          </div>
+          <h3>ROYAL CHATROOM</h3>
+          <p>Enter the royal Telegram court.</p>
+          <a href="https://t.me/GLOSSIPORTAL" target="_blank">https://t.me/GLOSSIPORTAL</a>
+        </div>
+
+        <div class="community-card">
+          <div class="community-icon">
+            <!-- TIKTOK ICON -->
+            <img src="IMG_1935.jpeg" alt="TikTok Icon">
+          </div>
+          <h3>MEME QUEEN</h3>
+          <p>Watch the Meme Queen’s reign on TikTok.</p>
+          <a href="https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe" target="_blank">
+            https://www.tiktok.com/@glossicat2?_r=1&_t=ZT-97ZfEYir4Xe
+          </a>
+        </div>
+
+        <div class="community-card">
+          <div class="community-icon">
+            <!-- INSTAGRAM ICON -->
+            <img src="IMG_1936.jpeg" alt="Instagram Icon">
+          </div>
+          <h3>ROYAL LIFESTYLE</h3>
+          <p>See the royal lifestyle on Instagram.</p>
+          <a href="https://www.instagram.com/officialglossicat" target="_blank">
+            https://www.instagram.com/officialglossicat
+          </a>
+        </div>
+
+        <div class="community-card">
+          <div class="community-icon">
+            <!-- DISCORD ICON -->
+            <img src="IMG_1960.jpeg" alt="Discord Icon">
+          </div>
+          <h3>PALACE COUNCIL</h3>
+          <p>Join the Discord council of GlossiCats.</p>
+          <a href="https://discord.gg/AwrCTKcRX" target="_blank">
+            https://discord.gg/AwrCTKcRX
+          </a>
+        </div>
+      </div>
+      <!-- JOIN BUTTON REMOVED AS REQUESTED -->
+    </section>
+
+    <!-- TREASURY TRACKER -->
+    <section id="treasury">
+      <h2 class="section-title">TREASURY TRACKER</h2>
+      <p class="section-subtitle">$GLOXI Treasury Value & Royal Reserves</p>
+
+      <div class="treasury-layout">
+        <div class="treasury-chart">
+          <!-- IMG_1925 TREASURY IMAGE -->
+          <img src="IMG_1925.png" alt="Treasury Chart">
+          <div class="upload-note">
+            Treasury tracker image: <strong>IMG_1925.jpeg</strong>
+          </div>
+        </div>
+
+        <div class="treasury-stats">
+          <p><strong>Treasury Balance:</strong> Display your live treasury value here.</p>
+          <p><strong>Total GLOXI Tokens:</strong> Display your total supply or circulating supply here.</p>
+          <p style="margin-top:10px;">
+            Quiet moves, loud results. Every buy strengthens the kingdom and expands the GlossiVerse.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <h2 class="section-title">ROADMAP</h2>
+      <p class="section-subtitle">Elegance Transforms Destiny</p>
+
+      <div class="roadmap-center-img">
+        <!-- ROADMAP CENTER IMAGE IMG_1820 -->
+        <img src="IMG_1820.jpeg" alt="Roadmap Center Image">
         <div class="upload-note">
-          Treasury tracker image: <strong>IMG_1925.jpeg</strong>
+          Upload roadmap centerpiece: <strong>IMG_1820.jpeg</strong>
         </div>
       </div>
-      <div class="treasury-stats">
-        <p><strong>Treasury Balance:</strong> Display your live treasury value here.</p>
-        <p><strong>Total GLOXI Tokens:</strong> Display your total supply or circulating supply here.</p>
-        <p style="margin-top:10px;">
-          Quiet moves, loud results. Every buy strengthens the kingdom and expands the GlossiVerse.
-        </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ROADMAP -->
-  <section id="roadmap">
-    <h2 class="section-title">ROADMAP</h2>
-    <p class="section-subtitle">Elegance Transforms Destiny</p>
-
-    <div class="roadmap-center-img">
-      <!-- ROADMAP CENTER IMAGE IMG_1820 -->
-      <img src="IMG_1863.png" alt="Roadmap Center Image">
-      <div class="upload-note">
-        
-      </div>
-    </div>
-
-    <div class="roadmap-text-block">
-      <p><strong>RE-LAUNCH CEREMONY</strong><br><br>
-      Though the GLOSI Kingdom endured a brutal raid and ruin, the realm has risen from the ashes. The royal token has been minted anew, and the gates now welcome all under the banner of GLOXI on Solana..
-      </p>
-      <p><strong>MEME QUEEN ASCENSION</strong><br><br>
-        The Ascension of the Meme Queen began the moment GlossiCat stepped out of the noise and into her throne. Viral moments, trending memes, and glossy storytelling push GlossiCat to the throne, turning her rise into a cultural event rather than a coincidence. Her crown wasn’t given, it was earned through quiet moves, strategic drops, and a presence that commanded attention without ever begging for it. Every chapter elevated her. Every holder strengthened her. Every moment built toward the inevitable: GlossiCat becoming the Meme Queen of a new era. Her ascension is not a story of luck. It’s a story of precision, culture, and unstoppable momentum.
-      </p>
-      <p><strong>COMMUNITY CORONATION</strong><br><br>
-        Strong holder base, royal citizens, and loyal believers form the court of GlossiCat. They are the lifeblood of her kingdom, the ones who amplify her message, protect her legacy, and elevate her rise with every share, every meme, every moment of momentum. Her coronation wasn’t declared by a single event. It was built by the community that stood behind her with unwavering conviction. Viral moments, trending memes, and glossy storytelling pushed GlossiCat to the throne, but it was her court, her people, who crowned her. In GlossiCat’s realm, every holder is a citizen of the kingdom. Every supporter is part of the royal guard. Every believer strengthens the throne she sits upon. This is the Community Coronation, the moment the world realized GlossiCat didn’t ascend alone. She ascended with her court.
-      </p>
-      <p><strong>ROYAL EXPANSION</strong><br><br>
-        Global reach, cross-platform presence, and partnerships extend the GlossiVerse beyond its borders. What began as a single throne now unfolds into an expanding kingdom, one built through culture, collaboration, and strategic visibility. GlossiCat’s rise doesn’t stop at her court; it radiates outward, touching new communities, new creators, and new digital realms. Soon, the GlossiVerse will no longer be a single kingdom... Soon it will become a realm without borders.
-      </p>
-    </div>
-
-    <div class="roadmap-grid">
-      <div class="roadmap-phase">
-        <h3>PHASE 1 – EMERGENCE</h3>
-        <div class="status">Status: Topcat</div>
-        <ul>
-          <li>Launch on Solana</li>
-          <li>Core branding & website</li>
-          <li>Key listings achieved</li>
-          <li>Social channels initiated</li>
-        </ul>
-      </div>
-      <div class="roadmap-phase">
-        <h3>PHASE 2 – HIGH SOCIETY</h3>
-        <div class="status">Status: Active</div>
-        <ul>
-          <li>Community growth expansion</li>
-          <li>Continued marketing efforts</li>
-          <li>Exclusive partnerships</li>
-          <li>Alliance building</li>
-        </ul>
-      </div>
-      <div class="roadmap-phase">
-        <h3>PHASE 3 – GLAMOUR FRAMEWORK</h3>
-        <div class="status">Status: Upcoming</div>
-        <ul>
-          <li>Enhanced rewards & utility</li>
-          <li>Holder loyalty & burns</li>
-          <li>Expanding collaborations</li>
-          <li>Strategic scaling</li>
-        </ul>
-      </div>
-      <div class="roadmap-phase">
-        <h3>PHASE 4 – ROYAL ASCENSION</h3>
-        <div class="status">Status: Future</div>
-        <ul>
-          <li>Global presence expansion</li>
-          <li>Exclusive community events</li>
-          <li>Major partnerships & integrations</li>
-          <li>Royal branding evolution</li>
-        </ul>
-      </div>
-      <div class="roadmap-phase">
-        <h3>PHASE 5 – GLITTER LEGACY</h3>
-        <div class="status">Status: Long Term</div>
-        <ul>
-          <li>Enduring meme brand</li>
-          <li>Expanded token utility</li>
-          <li>Royalty ecosystem expansion</li>
-          <li>Continuous innovation</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- MISSION & VISION -->
-  <section id="mission-vision">
-    <h2 class="section-title">MISSION & VISION</h2>
-    <p class="section-subtitle">The Royal Philosophy of GlossiCat</p>
-
-    <div class="mv-grid">
-      <div class="mv-block">
-        <h3>OUR MISSION</h3>
-        <p>
-          GlossiCat’s mission is to elevate meme culture through intentional design, cinematic storytelling, and community-driven expansion. We exist to build a digital kingdom where creativity, strategy, and culture converge, while empowering holders, inspiring creators, and transforming a meme into a global brand with real momentum and lasting impact.
-        </p>
-      </div>
-      <div class="mv-block">
-        <h3>OUR VISION</h3>
-        <p>
-          Our vision is to evolve GlossiCat into a cross-platform digital franchise. A living ecosystem of lore, utility, partnerships, and global reach. We aim to expand the GlossiVerse beyond borders, shaping a future where meme tokens become cultural icons, communities become royal courts, and digital storytelling becomes a new form of economic power. Build a global empire of meme royalty. A world where staying glossy means staying wealthy.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TOKENOMICS -->
-  <section id="tokenomics">
-    <h2 class="section-title">GLOXI TOKENOMICS</h2>
-    <p class="section-subtitle">Royal Structure of the Meme Queen’s Economy</p>
-
-    <div class="tokenomics-block">
-      <h3>Total Supply</h3>
-      <p>1,000,000,000,000 GLOSI</p>
-
-      <h3>Taxes</h3>
-      <p>0% Buy / 0% Sell</p>
-
-      <h3>Liquidity</h3>
-      <p>Locked</p>
-
-      <h3>Ownership</h3>
-      <p>Renounced</p>
-
-      <h3>Distribution Breakdown</h3>
-      <p>60% Community & Growth Fund — Airdrops, Rewards, Ecosystem Expansion</p>
-      <p>25% Liquidity Pool — Locked Liquidity on Raydium & Jupiter</p>
-      <p>10% Marketing & Partnerships — Influencers, Listings, Cinematic Drops</p>
-      <p>5% Team & Development — Future Upgrades & Animated Content</p>
-    </div>
-
-    <div class="tokenomics-poster">
-      <!-- UPLOAD TOKENOMICS POSTER IMAGE HERE -->
-      <p>
-        <img src="IMG_1927.jpeg"
-      </p>
-    </div>
-  </section>
-
-  <!-- BUY GLOXI SECTION (BOTTOM) -->
-  <section id="buy-bottom">
-    <h2 class="section-title">BUY GLOXI</h2>
-    <p class="section-subtitle">Enter the Royal Treasury</p>
-
-    <div class="buy-banner">
-      <!-- BANNER IMAGE IMG_1913 -->
-      <img src="IMG_1913.jpeg" alt="Buy GLOXI Banner">
-      <div class="upload-note">
-        
-      </div>
-    </div>
-
-    <div class="btn-row">
-      <a class="btn-gold" href="https://jup.ag/tokens/6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Jupiter</a>
-      <a class="btn-outline" href="https://raydium.io/swap/?inputMint=sol&outputMint=6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Solana</a>
-      <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">Buy on GeckoTerminal</a>
-    </div>
-
-    <p style="text-align:center; max-width:700px; margin:20px auto 0;">
-      Claim your throne in the GlossiVerse by acquiring GLOXI... Introducing the luxury meme token of Solana.
-      Quiet moves, loud results. Every buy strengthens the kingdom.
-    </p>
-
-  <!-- ROYAL FAQ CHAMBER -->
-  <section id="faq">
-    <h2 class="section-title">ROYAL FAQ CHAMBER</h2>
-    <p class="section-subtitle">Answers from the Throne</p>
-
-    <div class="faq-grid">
-      <div class="faq-list">
-        <h3>WHAT IS GLOXI?</h3>
-        <p>GLOXI is a luxury meme token on Solana, blending wealth, confidence, and creative energy.</p>
-
-        <h3>HOW DO I BUY GLOXI?</h3>
-        <p>Use Phantom Wallet or Jupiter Exchange to swap SOL for GLOXI.... the royal currency of the GlossiVerse.</p>
-
-        <h3>WHAT IS THE GLOSSIVERSE?</h3>
-        <p>
-          The GlossiVerse is the expanding digital kingdom powered by Solana and strengthened by the GlossiCat community.
-          It is the realm where her lore unfolds, relics hold power, her citizens gather, and her ascension takes place.
-          Every holder becomes part of this world, contributing to its growth, culture, and momentum.
+      <div class="roadmap-text-block">
+        <p><strong>LAUNCH CEREMONY</strong><br><br>
+          The royal token is minted and the kingdom opened its gates on Solana.
         </p>
 
-        <h3>IS LIQUIDITY LOCKED?</h3>
-        <p>Yes. The royal treasury is secured for transparency.</p>
+        <p><strong>MEME QUEEN ASCENSION</strong><br><br>
+          The Ascension of the Meme Queen began the moment GlossiCat stepped out of the noise and into her throne.
+          Viral moments, trending memes, and glossy storytelling push GlossiCat to the throne, turning her rise into a cultural event rather than a coincidence.
+          Her crown wasn’t given, it was earned through quiet moves, strategic drops, and a presence that commanded attention without ever begging for it.
+          Every chapter elevated her. Every holder strengthened her. Every moment built toward the inevitable:
+          GlossiCat becoming the Meme Queen of a new era. Her ascension is not a story of luck. It’s a story of precision, culture, and unstoppable momentum.
+        </p>
 
-        <h3>WHERE CAN I JOIN THE COMMUNITY?</h3>
-        <p>Through the royal channels: X (Twitter), Telegram, TikTok, Instagram, Discord, and more.</p>
-      </div>
-      <div class="faq-media">
-        <!-- UPLOAD FAQ / LORE THUMBNAIL HERE -->
-        <div class="lore-media">
-      <video class="lore-video" controls autoplay muted loop playsinline>
-        <source src="My Movie 3.mp4" type="video/mp4">
-      </video>
-      <div class="lore-actions">
+        <p><strong>COMMUNITY CORONATION</strong><br><br>
+          Strong holder base, royal citizens, and loyal believers form the court of GlossiCat.
+          They are the lifeblood of her kingdom, the ones who amplify her message, protect her legacy,
+          and elevate her rise with every share, every meme, every moment of momentum.
+          Her coronation wasn’t declared by a single event. It was built by the community that stood behind her with unwavering conviction.
+          Viral moments, trending memes, and glossy storytelling pushed GlossiCat to the throne, but it was her court, her people, who crowned her.
+          In GlossiCat’s realm, every holder is a citizen of the kingdom. Every supporter is part of the royal guard.
+          Every believer strengthens the throne she sits upon. This is the Community Coronation,
+          the moment the world realized GlossiCat didn’t ascend alone. She ascended with her court.
+        </p>
+
+        <p><strong>ROYAL EXPANSION</strong><br><br>
+          Global reach, cross-platform presence, and partnerships extend the GlossiVerse beyond its borders.
+          What began as a single throne now unfolds into an expanding kingdom, one built through culture, collaboration, and strategic visibility.
+          GlossiCat’s rise doesn’t stop at her court; it radiates outward, touching new communities, new creators, and new digital realms.
+          Soon, the GlossiVerse will no longer be a single kingdom... Soon it will become a realm without borders.
         </p>
       </div>
-    </div>
-  </section>
 
-</main>
+      <div class="roadmap-grid">
+        <div class="roadmap-phase">
+          <h3>PHASE 1 – EMERGENCE</h3>
+          <div class="status">Status: Topcat</div>
+          <ul>
+            <li>Launch on Solana</li>
+            <li>Core branding & website</li>
+            <li>Key listings achieved</li>
+            <li>Social channels initiated</li>
+          </ul>
+        </div>
 
-The GlossiCat™ and GLOXI™ names, marks, characters, and visual assets are protected under trademark and intellectual property law. Any attempt to impersonate, replicate, or misuse these assets — including unauthorized token creation or brand imitation constitutes infringement and may result in legal consequences.
-  
-<!-- BUY POPUP -->
-<div class="popup-overlay" id="buyPopup">
-  <div class="popup">
-    <!-- POPUP IMAGE IMG_1926 -->
-    <img src="IMG_1926.jpeg" alt="Buy GLOXI Popup">
-    <h2>Buy $GLOXI</h2>
-    <p>
-      Enter the royal treasury and claim your share of the GlossiVerse.
-      Swap SOL for GLOXI using your preferred Solana DEX.
-    </p>
-    <div class="btn-row" style="margin-top:12px;">
-      <a class="btn-gold" href="https://jup.ag/tokens/6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Jupiter</a>
-      <a class="btn-outline" href="https://raydium.io/swap/?inputMint=sol&outputMint=6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Solana</a>
-      <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">Buy on GeckoTerminal</a>
-    </div>
-    <div class="popup-close" onclick="closeBuyPopup()">Close window</div>
-  </div>
-</div>
+        <div class="roadmap-phase">
+          <h3>PHASE 2 – HIGH SOCIETY</h3>
+          <div class="status">Status: Active</div>
+          <ul>
+            <li>Community growth expansion</li>
+            <li>Continued marketing efforts</li>
+            <li>Exclusive partnerships</li>
+            <li>Alliance building</li>
+          </ul>
+        </div>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h3>GLOXI • Luxury Meme Token • Solana</h3>
-      <p style="font-size:13px;">
-        GlossiCat reigns over a kingdom of culture, confidence, and quiet power. Our Culture " QUIET MOVES, LOUD RESULTS"
-        The GlossiVerse is her realm... built by holders, amplified by lore, and crowned by meme royalty.
+        <div class="roadmap-phase">
+          <h3>PHASE 3 – GLAMOUR FRAMEWORK</h3>
+          <div class="status">Status: Upcoming</div>
+          <ul>
+            <li>Enhanced rewards & utility</li>
+            <li>Holder loyalty & burns</li>
+            <li>Expanding collaborations</li>
+            <li>Strategic scaling</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-phase">
+          <h3>PHASE 4 – ROYAL ASCENSION</h3>
+          <div class="status">Status: Future</div>
+          <ul>
+            <li>Global presence expansion</li>
+            <li>Exclusive community events</li>
+            <li>Major partnerships & integrations</li>
+            <li>Royal branding evolution</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-phase">
+          <h3>PHASE 5 – GLITTER LEGACY</h3>
+          <div class="status">Status: Long Term</div>
+          <ul>
+            <li>Enduring meme brand</li>
+            <li>Expanded token utility</li>
+            <li>Royalty ecosystem expansion</li>
+            <li>Continuous innovation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section id="mission-vision">
+      <h2 class="section-title">MISSION & VISION</h2>
+      <p class="section-subtitle">The Royal Philosophy of GlossiCat</p>
+
+      <div class="mv-grid">
+        <div class="mv-block">
+          <h3>OUR MISSION</h3>
+          <p>
+            GlossiCat’s mission is to elevate meme culture through intentional design, cinematic storytelling, and community-driven expansion.
+            We exist to build a digital kingdom where creativity, strategy, and culture converge, while empowering holders, inspiring creators,
+            and transforming a meme into a global brand with real momentum and lasting impact.
+          </p>
+        </div>
+
+        <div class="mv-block">
+          <h3>OUR VISION</h3>
+          <p>
+            Our vision is to evolve GlossiCat into a cross-platform digital franchise — a living ecosystem of lore, utility, partnerships, and global reach.
+            We aim to expand the GlossiVerse beyond borders, shaping a future where meme tokens become cultural icons, communities become royal courts,
+            and digital storytelling becomes a new form of economic power. Build a global empire of meme royalty — a world where staying glossy means staying wealthy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section id="tokenomics">
+      <h2 class="section-title">GLOXI TOKENOMICS</h2>
+      <p class="section-subtitle">Royal Structure of the Meme Queen’s Economy</p>
+
+      <div class="tokenomics-block">
+        <h3>Total Supply</h3>
+        <p>1,000,000,000,000 GLOSI</p>
+
+        <h3>Taxes</h3>
+        <p>0% Buy / 0% Sell</p>
+
+        <h3>Liquidity</h3>
+        <p>Locked</p>
+
+        <h3>Ownership</h3>
+        <p>Renounced</p>
+
+        <h3>Distribution Breakdown</h3>
+        <p>60% Community & Growth Fund — Airdrops, Rewards, Ecosystem Expansion</p>
+        <p>25% Liquidity Pool — Locked Liquidity on Raydium & Jupiter</p>
+        <p>10% Marketing & Partnerships — Influencers, Listings, Cinematic Drops</p>
+        <p>5% Team & Development — Future Upgrades & Animated Content</p>
+      </div>
+
+      <div class="tokenomics-poster">
+        <!-- UPDATED TOKENOMICS POSTER WITH RED CARPET GLOSSI -->
+        <img src="IMG_1927.jpeg" alt="GLOXI Tokenomics Poster">
+        <div class="upload-note">
+          Upload tokenomics poster (red carpet Glossi version): <strong>IMG_1927.jpeg</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUY GLOXI SECTION (BOTTOM) -->
+    <section id="buy-bottom">
+      <h2 class="section-title">BUY GLOXI</h2>
+      <p class="section-subtitle">Enter the Royal Treasury</p>
+
+      <div class="buy-banner">
+        <!-- BANNER IMAGE IMG_1913 -->
+        <img src="IMG_1913.jpeg" alt="Buy GLOXI Banner">
+        <div class="upload-note">
+          Upload buy banner: <strong>IMG_1913.jpeg</strong>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-gold" href="https://jup.ag/tokens/6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Jupiter</a>
+        <a class="btn-outline" href="https://raydium.io/swap/?inputMint=sol&outputMint=6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Solana</a>
+        <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">Buy on GeckoTerminal</a>
+      </div>
+
+      <p style="text-align:center; max-width:700px; margin:20px auto 0;">
+        Claim your throne in the GlossiVerse by acquiring GLOXI—the luxury meme token of Solana.
+        Quiet moves, loud results. Every buy strengthens the kingdom.
       </p>
-    </div>
-    <div class="footer-links">
-      <p><strong>Navigation</strong></p>
-      <a href="#hero">Hero</a>
-      <a href="#about">About</a>
-      <a href="#kingdom-chronicles">Lore</a>
-      <a href="#welcome">Welcome</a>
-      <a href="#token-utility">Token Utility</a>
-      <a href="#community">Community</a>
-      <a href="#treasury">Treasury</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#mission-vision">Mission & Vision</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#buy-bottom">Buy GLOSI</a>
-      <a href="#faq">Royal FAQ</a>
+    </section>
+
+    <!-- ROYAL FAQ CHAMBER -->
+    <section id="faq">
+      <h2 class="section-title">ROYAL FAQ CHAMBER</h2>
+      <p class="section-subtitle">Answers from the Throne</p>
+
+      <div class="faq-grid">
+        <div class="faq-list">
+          <h3>WHAT IS GLOXI?</h3>
+          <p>GLOXI is a luxury meme token on Solana, blending wealth, confidence, and creative energy.</p>
+
+          <h3>HOW DO I BUY GLOXI?</h3>
+          <p>Use Phantom Wallet or Jupiter Exchange to swap SOL for GLOXI—the royal currency of the GlossiVerse.</p>
+
+          <h3>WHAT IS THE GLOSSIVERSE?</h3>
+          <p>
+            The GlossiVerse is the expanding digital kingdom powered by Solana and strengthened by the GlossiCat community.
+            It is the realm where her lore unfolds, relics hold power, her citizens gather, and her ascension takes place.
+            Every holder becomes part of this world, contributing to its growth, culture, and momentum.
+          </p>
+
+          <h3>IS LIQUIDITY LOCKED?</h3>
+          <p>Yes—the royal treasury is secured and ownership renounced for transparency.</p>
+
+          <h3>WHERE CAN I JOIN THE COMMUNITY?</h3>
+          <p>
+            Through the royal channels: X (Twitter), Telegram, TikTok, Instagram, Discord, and more.
+          </p>
+
+          <!-- TRADEMARK NOTICE UNDER WHERE CAN I JOIN -->
+          <p style="margin-top:10px; font-size:11px; color:rgba(0,0,0,0.7);">
+            GlossiCat, GLOXI, and the GlossiVerse are part of a creative luxury meme brand and digital kingdom concept.
+            All narrative, imagery, and branding elements are part of the royal creative framework.
+          </p>
+        </div>
+
+        <div class="faq-media">
+          <!-- LORE / FAQ MP4 FITTING GOLD BORDER BOX -->
+          <video controls autoplay muted loop playsinline>
+            <source src="My Movie 3.mp4" type="video/mp4">
+          </video>
+          <div class="upload-note">
+            Upload FAQ / lore video: <strong>My Movie 3.mp4</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BUY POPUP -->
+  <div class="popup-overlay" id="buyPopup">
+    <div class="popup">
+      <h2>Enter the Royal Treasury</h2>
+      <p>Select your royal gateway to acquire GLOXI.</p>
+
+      <!-- POPUP IMAGE IMG_1926 -->
+      <img src="IMG_1926.jpeg" alt="Buy GLOXI Popup Image">
+
+      <div class="btn-row" style="margin-top:10px;">
+        <a class="btn-gold" href="https://jup.ag/tokens/6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Jupiter</a>
+        <a class="btn-outline" href="https://raydium.io/swap/?inputMint=sol&outputMint=6JZwQ7PCgQcHWZ7aKrYGEy3khqCcWaDiKCxuvuvpSN5K" target="_blank">Buy on Solana</a>
+        <a class="btn-outline" href="https://www.geckoterminal.com/solana/pools/4NX5P7V8gEJydHias47cjUv173FA9pzfDfJNNo2AigJv" target="_blank">Buy on GeckoTerminal</a>
+      </div>
+
+      <div class="popup-close" onclick="closeBuyPopup()">Close</div>
     </div>
   </div>
-  <p style="text-align:center; font-size:11px; margin-top:15px;">
-    © 2026 GLOXI • All Rights Reserved • Quiet Moves, Loud Results 
-  </p>
-</footer>
 
-<script>
-  function openBuyPopup() {
-    document.getElementById('buyPopup').style.display = 'flex';
-  }
-  function closeBuyPopup() {
-    document.getElementById('buyPopup').style.display = 'none';
-  }
-</script>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>$GLOXI • Luxury Meme Queen of Solana</h3>
+        <p style="font-size:12px;">
+          Quiet Moves. Loud Results. A royal meme kingdom built on culture, precision, and community.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Top</a>
+        <a href="#about">About</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#buy-bottom">Buy GLOXI</a>
+      </div>
+    </div>
+  </footer>
 
+  <script>
+    function openBuyPopup() {
+      document.getElementById('buyPopup').style.display = 'flex';
+    }
+
+    function closeBuyPopup() {
+      document.getElementById('buyPopup').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
